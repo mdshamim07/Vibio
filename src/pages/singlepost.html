@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../output.css" rel="stylesheet" />
+    <title>Single Post View</title>
+    <style>
+      .btn-filter {
+        cursor: pointer;
+        padding: 0.5rem 1rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin: 0 5px;
+        transition: background-color 0.3s ease;
+      }
+      .btn-filter.active {
+        background-color: #007bff;
+        color: white;
+        border-color: #007bff;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header class="shadow-md bg-white">
+      <div class="container py-2 mx-auto flex justify-between items-center">
+        <div class="flex items-center gap-4 w-full">
+          <div class="logo">Logo</div>
+          <div class="hidden sm:block sm:w-[80%] md:w-[50%] relative">
+            <input
+              type="text"
+              placeholder="Search"
+              class="w-full focus:border-black outline-none py-2 px-4 rounded-[30px] border"
+            />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="absolute right-2 top-3 lucide lucide-search"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.3-4.3" />
+            </svg>
+          </div>
+        </div>
+        <div class="flex items-center gap-4">
+          <!-- User and notifications -->
+          <span class="relative cursor-pointer">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-user-plus"
+            >
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <line x1="19" x2="19" y1="8" y2="14" />
+              <line x1="22" x2="16" y1="11" y2="11" />
+            </svg>
+          </span>
+          <span class="relative cursor-pointer">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-bell"
+            >
+              <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
+              <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
+            </svg>
+          </span>
+          <div class="w-[40px] h-[40px] cursor-pointer">
+            <img
+              class="w-full h-full rounded-full"
+              src="https://example.com/user-avatar.jpg"
+              alt="User Avatar"
+            />
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Section -->
+    <main class="container mx-auto my-4">
+      <div class="lg:w-2/3 mx-auto">
+        <!-- Post Section -->
+        <div class="shadow-md bg-white p-4 rounded-md mb-6">
+          <div class="flex items-center gap-4 mb-4">
+            <img
+              class="w-[50px] h-[50px] rounded-full"
+              src="https://example.com/post-user-avatar.jpg"
+              alt="Post User"
+            />
+            <div>
+              <p class="font-semibold">Md Shamim Mia</p>
+              <span class="text-sm text-gray-500">2 hours ago</span>
+            </div>
+          </div>
+          <p class="mb-4">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad
+            eligendi aspernatur hic rem aliquam, cupiditate velit, quae
+            distinctio fugiat, deleniti tempore voluptatibus? Tempora eius, aut
+            perferendis facere nam rem aliquid.
+          </p>
+          <img
+            class="w-full rounded-md"
+            src="https://example.com/post-image.jpg"
+            alt="Post Content"
+          />
+        </div>
+
+        <!-- Comments Section -->
+        <div class="shadow-md bg-white p-4 rounded-md">
+          <div class="flex justify-between items-center mb-4">
+            <h2 class="font-bold text-lg">Comments</h2>
+            <div>
+              <button
+                class="btn-filter active"
+                id="filter-newest"
+                onclick="filterComments('newest')"
+              >
+                Newest
+              </button>
+              <button
+                class="btn-filter"
+                id="filter-oldest"
+                onclick="filterComments('oldest')"
+              >
+                Oldest
+              </button>
+            </div>
+          </div>
+
+          <!-- Add Comment -->
+          <div class="flex gap-4 mb-6">
+            <img
+              class="w-[40px] h-[40px] rounded-full object-cover"
+              src="https://example.com/current-user-avatar.jpg"
+              alt="User"
+            />
+            <input
+              type="text"
+              placeholder="Write a comment..."
+              class="flex-grow py-2 px-4 rounded-md border outline-none"
+            />
+            <button class="px-4 py-2 bg-blue-500 text-white rounded-md">
+              Post
+            </button>
+          </div>
+
+          <!-- Comments List -->
+          <div id="comments-list">
+            <!-- Comments will be dynamically loaded here -->
+            <div class="mb-4 border-b pb-2">
+              <div class="flex gap-4">
+                <img
+                  class="w-[40px] h-[40px] rounded-full object-cover"
+                  src="https://example.com/comment-user-avatar.jpg"
+                  alt="Comment User"
+                />
+                <div>
+                  <h4 class="font-semibold">User Name</h4>
+                  <p class="text-gray-600 text-sm">This is a comment.</p>
+                  <span class="text-xs text-gray-400">2 hours ago</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

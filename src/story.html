@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./output.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- header start  -->
+    <header class="shadow-md bg-white">
+      <div class="container py-2 mx-auto flex justify-between items-center">
+        <div class="flex items-center gap-4 w-full">
+          <div class="logo">Logo</div>
+          <div class="hidden sm:block sm:w-[80%] md:w-[50%] relative">
+            <input
+              type="text"
+              placeholder="Search"
+              class="w-full focus:border-black outline-none py-2 px-4 rounded-[30px] border"
+            />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="absolute right-2 top-3 lucide lucide-search"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.3-4.3" />
+            </svg>
+          </div>
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="relative cursor-pointer">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-user-plus"
+            >
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <line x1="19" x2="19" y1="8" y2="14" />
+              <line x1="22" x2="16" y1="11" y2="11" />
+            </svg>
+            <span
+              class="w-[20px] justify-center items-center text-xs absolute top-[-12px] text-white right-[-10px] flex h-[20px] rounded-full bg-primary"
+              >1k</span
+            >
+          </span>
+          <span class="relative cursor-pointer">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-message-square"
+            >
+              <path
+                d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+              />
+            </svg>
+            <span
+              class="w-[20px] justify-center items-center text-xs absolute top-[-12px] text-white right-[-10px] flex h-[20px] rounded-full bg-primary"
+              >1k</span
+            >
+          </span>
+          <span class="relative cursor-pointer">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-bell"
+            >
+              <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
+              <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
+            </svg>
+            <span
+              class="w-[20px] justify-center items-center text-xs absolute top-[-12px] text-white right-[-10px] flex h-[20px] rounded-full bg-primary"
+              >6k</span
+            >
+          </span>
+          <div class="w-[40px] h-[40px] cursor-pointer">
+            <img
+              class="w-full h-full rounded-full"
+              src="https://scontent.fdac138-1.fna.fbcdn.net/v/t39.30808-6/329951287_570241145023072_6736433956901739_n.jpg?_nc_cat=1&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=A4NIjtKGur8Q7kNvgH2vT2w&_nc_zt=23&_nc_ht=scontent.fdac138-1.fna&_nc_gid=AyyAaGpVM03yCh0cikyPTyV&oh=00_AYD4bMLTNoOoYdDem7mfoc4Ju4M3c4i8x4Icr59PbI6CAA&oe=674E04A7"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </header>
+    <div
+      class="w-[50px] bg-secondaryBg flex justify-center items-center cursor-pointer h-[50px] rounded-full absolute right-10 top-[10%]"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-x"
+      >
+        <path d="M18 6 6 18" />
+        <path d="m6 6 12 12" />
+      </svg>
+    </div>
+    <div
+      class="w-[50px] bg-secondaryBg flex justify-center items-center cursor-pointer h-[50px] rounded-full absolute left-5 top-[50%]"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-chevron-left"
+      >
+        <path d="m15 18-6-6 6-6" />
+      </svg>
+    </div>
+    <div
+      class="w-[50px] bg-secondaryBg flex justify-center items-center cursor-pointer h-[50px] rounded-full absolute right-5 top-[50%]"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-chevron-right"
+      >
+        <path d="m9 18 6-6-6-6" />
+      </svg>
+    </div>
+
+    <div class="mt-4 mb-2 w-full flex justify-center items-center">
+      <div class="top-line flex gap-2 items-center justify-center sm:w-[400px]">
+        <span class="w-full h-[4px] bg-primary inline-block rounded-sm"></span>
+      </div>
+    </div>
+    <div class="w-full flex justify-center items-center">
+      <div class="w-[90%] rounded-sm sm:w-[400px] h-[80vh]">
+        <img
+          class="w-full h-full rounded-sm"
+          src="https://scontent.fdac138-2.fna.fbcdn.net/v/t39.30808-6/470209327_122168665562109423_2016284925087010557_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFenZo1BHjjLtef67vK3iAi8Ql4zArnBYjxCXjMCucFiPlIEdncGowPg2fI-GHsCQ9YptXVxJh2EuRn_Lj6WLLq&_nc_ohc=RERoXoT1S1IQ7kNvgE2JDSw&_nc_zt=23&_nc_ht=scontent.fdac138-2.fna&_nc_gid=AZInEeIDC96b1SUXSVWuuvo&oh=00_AYBtqjXOWPWczHUB9UhBhfBMU-b1Swn2ONpPkPMXB_h8-g&oe=67660713"
+          alt=""
+        />
+      </div>
+    </div>
+  </body>
+</html>

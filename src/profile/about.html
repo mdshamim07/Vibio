@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About - Profile Page</title>
+    <link href="../output.css" rel="stylesheet" />
+  </head>
+
+  <body class="bg-gray-100 text-gray-800">
+    <!-- Header: Same as Profile Page -->
+    <div class="bg-white shadow-md">
+      <div class="relative">
+        <!-- Cover Photo -->
+        <img
+          src="https://via.placeholder.com/1200x400"
+          alt="Cover Photo"
+          class="w-full h-[250px] object-cover"
+        />
+        <!-- Profile Picture -->
+        <div
+          class="absolute bottom-[-50px] left-8 w-[120px] h-[120px] rounded-full border-4 border-white shadow-lg"
+        >
+          <img
+            src="https://via.placeholder.com/120"
+            alt="Profile Picture"
+            class="rounded-full object-cover w-full h-full"
+          />
+        </div>
+      </div>
+      <!-- User Info -->
+      <div class="pt-16 px-8 pb-4">
+        <h1 class="text-2xl font-bold">Md Shamim</h1>
+        <p class="text-gray-600">
+          Full Stack Developer | JavaScript Enthusiast
+        </p>
+      </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <div class="bg-white shadow-md mt-4 sticky top-0 z-10">
+      <div class="flex justify-center gap-6 py-2">
+        <a href="#" class="text-gray-600 hover:text-blue-500">Posts</a>
+        <a href="#" class="text-blue-500 font-semibold hover:underline"
+          >About</a
+        >
+        <a href="#" class="text-gray-600 hover:text-blue-500">Friends</a>
+        <a href="#" class="text-gray-600 hover:text-blue-500">Photos</a>
+      </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="max-w-6xl mx-auto px-4 py-8">
+      <div class="bg-white rounded-lg shadow-md p-6">
+        <div class="flex gap-2 items-center">
+          <h2 class="text-2xl font-bold mb-4">About Me</h2>
+          <button class="btn">Edit</button>
+        </div>
+        <!-- Personal Information -->
+        <div class="space-y-4">
+          <div>
+            <h3 class="font-semibold text-lg">Work</h3>
+            <input
+              type="text"
+              placeholder="Write Your Work"
+              class="mt-2 w-full md:w-1/2 outline-none border variable-btn bg-boxColor"
+            />
+            <p class="text-gray-600">
+              Full Stack Developer at <b>Freelance</b>
+            </p>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-lg">Education</h3>
+            <input
+              type="text"
+              placeholder="B.Sc in Computer Science"
+              class="w-full md:w-1/2 outline-none border variable-btn bg-boxColor"
+            />
+            <p class="text-gray-600">B.Sc in Computer Science</p>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-lg">Location</h3>
+            <input
+              type="text"
+              placeholder="B.Sc in Computer Science"
+              class="w-full mt-2 md:w-1/2 outline-none border variable-btn bg-boxColor"
+            />
+            <p class="text-gray-600">Dhaka, Bangladesh</p>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-lg">Skills</h3>
+            <input
+              type="text"
+              placeholder="Write Your Work"
+              class="mt-2 w-full md:w-1/2 outline-none border variable-btn bg-boxColor"
+            />
+            <p class="text-gray-600">
+              JavaScript, React, Next.js, Tailwind CSS, Node.js
+            </p>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-lg">Bio</h3>
+            <textarea
+              type="text"
+              placeholder="B.Sc in Computer Science"
+              class="w-full md:w-1/2 outline-none border variable-btn bg-boxColor"
+              rows="4"
+            >
+I am a passionate developer who loves building web applications with modern frameworks and technologies. I enjoy learning new things and delivering high-quality products to my clients.</textarea
+            >
+            <p class="text-gray-600 leading-relaxed"></p>
+          </div>
+          <div>
+            <button class="btn">Update</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

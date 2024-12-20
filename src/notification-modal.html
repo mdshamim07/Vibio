@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./output.css" rel="stylesheet" />
+  </head>
+  <body class="bg-gray-100">
+    <!-- Overlay and Modal Container -->
+    <div id="modal">
+      <div
+        class="bg-white fixed right-2 top-16 rounded-lg w-[90%] sm:w-[400px]"
+      >
+        <!-- Modal Header -->
+        <div class="flex justify-between items-center border-b p-4">
+          <h2 class="text-lg font-semibold">Notifications</h2>
+          <button id="close-modal" class="text-gray-500 hover:text-gray-800">
+            &times;
+          </button>
+        </div>
+
+        <!-- Modal Body -->
+        <div class="p-4 h-[400px] overflow-y-auto">
+          <!-- New Notifications -->
+          <h3 class="text-gray-700 font-medium mb-2">New</h3>
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="w-[50px] h-[50px]">
+                <img
+                  class="w-full h-full rounded-full"
+                  src="https://via.placeholder.com/40"
+                  alt="User Profile"
+                />
+              </div>
+              <div class="w-[80%]">
+                <p class="text-sm font-medium">
+                  Pujon Das Auvi, KAWSAR KABIR and 14 others posted in Learn
+                  with Sumit - LWS
+                </p>
+                <span class="text-xs text-gray-500">7m</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10">
+                <img
+                  class="w-full h-full rounded-full"
+                  src="https://via.placeholder.com/40"
+                  alt="User Profile"
+                />
+              </div>
+              <div>
+                <p class="text-sm font-medium">
+                  Programming Hero, Abida Mahmud Jefrin and Jhankar Mahbub
+                  posted in Programming
+                </p>
+                <span class="text-xs text-gray-500"
+                  >21h - 48 reactions - 5 comments</span
+                >
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10">
+                <img
+                  class="w-full h-full rounded-full"
+                  src="https://via.placeholder.com/40"
+                  alt="User Profile"
+                />
+              </div>
+              <div>
+                <p class="text-sm font-medium">
+                  Ripon Hasan posted in All pharmaceuticals Job Circular
+                </p>
+                <span class="text-xs text-gray-500"
+                  >19h - 70 reactions - 7 comments</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Friend Requests -->
+          <h3 class="text-gray-700 font-medium mt-6 mb-2">Friend Requests</h3>
+          <div class="space-y-4">
+            <div class="flex items-center gap-3 justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10">
+                  <img
+                    class="w-full h-full rounded-full"
+                    src="https://via.placeholder.com/40"
+                    alt="Friend Request"
+                  />
+                </div>
+                <div>
+                  <p class="text-sm font-medium">
+                    Sanjida Kawsar sent you a friend request.
+                  </p>
+                  <span class="text-xs text-gray-500">4d</span>
+                </div>
+              </div>
+              <div class="flex gap-2">
+                <button
+                  class="bg-blue-600 text-white text-sm px-3 py-1 rounded hover:bg-blue-700"
+                >
+                  Confirm
+                </button>
+                <button
+                  class="bg-gray-300 text-gray-800 text-sm px-3 py-1 rounded hover:bg-gray-400"
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header class="shadow-md bg-white">
+      <div class="container py-2 mx-auto flex justify-between items-center">
+        <div class="flex items-center gap-4 w-full">
+          <div class="logo">Logo</div>
+        </div>
+        <div class="flex items-center gap-4">
+          <button
+            id="open-modal"
+            class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
+          >
+            Notifications
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <script>
+      const modal = document.getElementById("modal");
+      const openModal = document.getElementById("open-modal");
+      const closeModal = document.getElementById("close-modal");
+
+      openModal.addEventListener("click", () => {
+        modal.classList.remove("hidden");
+      });
+
+      closeModal.addEventListener("click", () => {
+        modal.classList.add("hidden");
+      });
+    </script>
+  </body>
+</html>

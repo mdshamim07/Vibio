@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./output.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- header start  -->
+    <header class="shadow-md bg-white">
+      <div class="container py-2 mx-auto flex justify-between items-center">
+        <div class="flex items-center gap-4 w-full">
+          <div class="logo">Logo</div>
+          <div class="hidden sm:block sm:w-[80%] md:w-[50%] relative">
+            <input
+              type="text"
+              placeholder="Search"
+              class="w-full focus:border-black outline-none py-2 px-4 rounded-[30px] border"
+            />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="absolute right-2 top-3 lucide lucide-search"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.3-4.3" />
+            </svg>
+          </div>
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="relative cursor-pointer">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-user-plus"
+            >
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <line x1="19" x2="19" y1="8" y2="14" />
+              <line x1="22" x2="16" y1="11" y2="11" />
+            </svg>
+            <span
+              class="w-[20px] justify-center items-center text-xs absolute top-[-12px] text-white right-[-10px] flex h-[20px] rounded-full bg-primary"
+              >1k</span
+            >
+          </span>
+          <span class="relative cursor-pointer">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-message-square"
+            >
+              <path
+                d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+              />
+            </svg>
+            <span
+              class="w-[20px] justify-center items-center text-xs absolute top-[-12px] text-white right-[-10px] flex h-[20px] rounded-full bg-primary"
+              >1k</span
+            >
+          </span>
+          <span class="relative cursor-pointer">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-bell"
+            >
+              <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
+              <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
+            </svg>
+            <span
+              class="w-[20px] justify-center items-center text-xs absolute top-[-12px] text-white right-[-10px] flex h-[20px] rounded-full bg-primary"
+              >6k</span
+            >
+          </span>
+          <div class="w-[40px] h-[40px] cursor-pointer">
+            <img
+              class="w-full h-full rounded-full"
+              src="https://scontent.fdac138-1.fna.fbcdn.net/v/t39.30808-6/329951287_570241145023072_6736433956901739_n.jpg?_nc_cat=1&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=A4NIjtKGur8Q7kNvgH2vT2w&_nc_zt=23&_nc_ht=scontent.fdac138-1.fna&_nc_gid=AyyAaGpVM03yCh0cikyPTyV&oh=00_AYD4bMLTNoOoYdDem7mfoc4Ju4M3c4i8x4Icr59PbI6CAA&oe=674E04A7"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- header end  -->
+    <main class="container mx-auto grid grid-cols-12 mt-4 gap-4">
+      <div class="left col-span-3 hidden lg:block">
+        <ul>
+          <li class="mt-2">
+            <a
+              href="pages/feed.html"
+              class="flex items-center gap-4 text-gray-600 cursor-pointer"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-layout-dashboard"
+              >
+                <rect width="7" height="9" x="3" y="3" rx="1" />
+                <rect width="7" height="5" x="14" y="3" rx="1" />
+                <rect width="7" height="9" x="14" y="12" rx="1" />
+                <rect width="7" height="5" x="3" y="16" rx="1" />
+              </svg>
+              <span>Feed</span></a
+            >
+          </li>
+          <li class="mt-2 flex items-center gap-4 text-gray-600 cursor-pointer">
+            <span
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-users"
+              >
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg
+            ></span>
+            <span>Friends</span>
+          </li>
+          <li class="mt-2">
+            <a
+              class="flex items-center gap-4 text-gray-600 cursor-pointer"
+              href="pages/watch-video.html"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-tv-minimal-play"
+              >
+                <path
+                  d="M10 7.75a.75.75 0 0 1 1.142-.638l3.664 2.249a.75.75 0 0 1 0 1.278l-3.664 2.25a.75.75 0 0 1-1.142-.64z"
+                />
+                <path d="M7 21h10" />
+                <rect width="20" height="14" x="2" y="3" rx="2" />
+              </svg>
+              <span>Watch Videos</span></a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="middle col-span-12 lg:col-span-5">
+        <h2 class="text-xl font-medium">Stories</h2>
+        <div class="flex justify-center">
+          <!-- Story Items Wrapper -->
+          <div class="flex gap-4 p-2 overflow-x-hidden">
+            <!-- Individual Story Item -->
+            <div
+              class="cursor-pointer relative w-[150px] h-[250px] border rounded-lg overflow-hidden shadow-lg flex-shrink-0"
+            >
+              <!-- Background Image -->
+              <img
+                class="absolute top-0 left-0 w-full h-full object-cover"
+                src="https://images.pexels.com/photos/29321623/pexels-photo-29321623/free-photo-of-picturesque-street-view-of-dresden-s-historic-architecture.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                alt=""
+              />
+              <!-- Live Badge -->
+              <div
+                class="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded"
+              >
+                LIVE
+              </div>
+              <!-- User Info -->
+              <div class="absolute bottom-2 left-2 flex items-center gap-2">
+                <img
+                  class="w-[40px] h-[40px] rounded-full border-2 border-white"
+                  src="https://scontent.fdac138-2.fna.fbcdn.net/v/t39.30808-1/461136347_122106364766528083_4458622693417908386_n.jpg?stp=c0.0.1533.1533a_dst-jpg_s160x160_tt6&_nc_cat=102&ccb=1-7&_nc_sid=0ecb9b&_nc_ohc=fq08-htin-gQ7kNvgGsQax2&_nc_zt=24&_nc_ht=scontent.fdac138-2.fna&_nc_gid=AFu51xhZMdpGNLBTJidRBS4&oh=00_AYCvlvd-0FLTJSwPZzSqTtvX2RfUYawgC32ieAnt_6TBOQ&oe=67533D6B"
+                  alt=""
+                />
+                <p class="text-white text-sm font-semibold">Md Shamim</p>
+              </div>
+            </div>
+            <div
+              class="cursor-pointer relative w-[150px] h-[250px] border rounded-lg overflow-hidden shadow-lg flex-shrink-0"
+            >
+              <!-- Background Image -->
+              <img
+                class="absolute top-0 left-0 w-full h-full object-cover"
+                src="https://images.pexels.com/photos/29321623/pexels-photo-29321623/free-photo-of-picturesque-street-view-of-dresden-s-historic-architecture.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                alt=""
+              />
+              <!-- Live Badge -->
+              <div
+                class="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded"
+              >
+                LIVE
+              </div>
+              <!-- User Info -->
+              <div class="absolute bottom-2 left-2 flex items-center gap-2">
+                <img
+                  class="w-[40px] h-[40px] rounded-full border-2 border-white"
+                  src="https://scontent.fdac138-2.fna.fbcdn.net/v/t39.30808-1/461136347_122106364766528083_4458622693417908386_n.jpg?stp=c0.0.1533.1533a_dst-jpg_s160x160_tt6&_nc_cat=102&ccb=1-7&_nc_sid=0ecb9b&_nc_ohc=fq08-htin-gQ7kNvgGsQax2&_nc_zt=24&_nc_ht=scontent.fdac138-2.fna&_nc_gid=AFu51xhZMdpGNLBTJidRBS4&oh=00_AYCvlvd-0FLTJSwPZzSqTtvX2RfUYawgC32ieAnt_6TBOQ&oe=67533D6B"
+                  alt=""
+                />
+                <p class="text-white text-sm font-semibold">Rakib Khan</p>
+              </div>
+            </div>
+            <div
+              class="cursor-pointer relative w-[150px] h-[250px] border rounded-lg overflow-hidden shadow-lg flex-shrink-0"
+            >
+              <!-- Background Image -->
+              <img
+                class="absolute top-0 left-0 w-full h-full object-cover"
+                src="https://images.pexels.com/photos/29321623/pexels-photo-29321623/free-photo-of-picturesque-street-view-of-dresden-s-historic-architecture.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                alt=""
+              />
+              <!-- Live Badge -->
+              <div
+                class="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded"
+              >
+                LIVE
+              </div>
+              <!-- User Info -->
+              <div class="absolute bottom-2 left-2 flex items-center gap-2">
+                <img
+                  class="w-[40px] h-[40px] rounded-full border-2 border-white"
+                  src="https://scontent.fdac138-2.fna.fbcdn.net/v/t39.30808-1/461136347_122106364766528083_4458622693417908386_n.jpg?stp=c0.0.1533.1533a_dst-jpg_s160x160_tt6&_nc_cat=102&ccb=1-7&_nc_sid=0ecb9b&_nc_ohc=fq08-htin-gQ7kNvgGsQax2&_nc_zt=24&_nc_ht=scontent.fdac138-2.fna&_nc_gid=AFu51xhZMdpGNLBTJidRBS4&oh=00_AYCvlvd-0FLTJSwPZzSqTtvX2RfUYawgC32ieAnt_6TBOQ&oe=67533D6B"
+                  alt=""
+                />
+                <p class="text-white text-sm font-semibold">Rakib Khan</p>
+              </div>
+            </div>
+            <div
+              class="cursor-pointer relative w-[150px] h-[250px] border rounded-lg overflow-hidden shadow-lg flex-shrink-0"
+            >
+              <!-- Background Image -->
+              <img
+                class="absolute top-0 left-0 w-full h-full object-cover"
+                src="https://images.pexels.com/photos/29321623/pexels-photo-29321623/free-photo-of-picturesque-street-view-of-dresden-s-historic-architecture.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                alt=""
+              />
+              <!-- Live Badge -->
+              <div
+                class="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded"
+              >
+                LIVE
+              </div>
+              <!-- User Info -->
+              <div class="absolute bottom-2 left-2 flex items-center gap-2">
+                <img
+                  class="w-[40px] h-[40px] rounded-full border-2 border-white"
+                  src="https://scontent.fdac138-2.fna.fbcdn.net/v/t39.30808-1/461136347_122106364766528083_4458622693417908386_n.jpg?stp=c0.0.1533.1533a_dst-jpg_s160x160_tt6&_nc_cat=102&ccb=1-7&_nc_sid=0ecb9b&_nc_ohc=fq08-htin-gQ7kNvgGsQax2&_nc_zt=24&_nc_ht=scontent.fdac138-2.fna&_nc_gid=AFu51xhZMdpGNLBTJidRBS4&oh=00_AYCvlvd-0FLTJSwPZzSqTtvX2RfUYawgC32ieAnt_6TBOQ&oe=67533D6B"
+                  alt=""
+                />
+                <p class="text-white text-sm font-semibold">Rakib Khan</p>
+              </div>
+            </div>
+            <div
+              class="cursor-pointer relative w-[150px] h-[250px] border rounded-lg overflow-hidden shadow-lg flex-shrink-0"
+            >
+              <!-- Background Image -->
+              <img
+                class="absolute top-0 left-0 w-full h-full object-cover"
+                src="https://images.pexels.com/photos/29321623/pexels-photo-29321623/free-photo-of-picturesque-street-view-of-dresden-s-historic-architecture.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                alt=""
+              />
+              <!-- Live Badge -->
+              <div
+                class="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded"
+              >
+                LIVE
+              </div>
+              <!-- User Info -->
+              <div class="absolute bottom-2 left-2 flex items-center gap-2">
+                <img
+                  class="w-[40px] h-[40px] rounded-full border-2 border-white"
+                  src="https://scontent.fdac138-2.fna.fbcdn.net/v/t39.30808-1/461136347_122106364766528083_4458622693417908386_n.jpg?stp=c0.0.1533.1533a_dst-jpg_s160x160_tt6&_nc_cat=102&ccb=1-7&_nc_sid=0ecb9b&_nc_ohc=fq08-htin-gQ7kNvgGsQax2&_nc_zt=24&_nc_ht=scontent.fdac138-2.fna&_nc_gid=AFu51xhZMdpGNLBTJidRBS4&oh=00_AYCvlvd-0FLTJSwPZzSqTtvX2RfUYawgC32ieAnt_6TBOQ&oe=67533D6B"
+                  alt=""
+                />
+                <p class="text-white text-sm font-semibold">Rakib Khan</p>
+              </div>
+            </div>
+            <div
+              class="cursor-pointer relative w-[150px] h-[250px] border rounded-lg overflow-hidden shadow-lg flex-shrink-0"
+            >
+              <!-- Background Image -->
+              <img
+                class="absolute top-0 left-0 w-full h-full object-cover"
+                src="https://images.pexels.com/photos/29321623/pexels-photo-29321623/free-photo-of-picturesque-street-view-of-dresden-s-historic-architecture.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                alt=""
+              />
+              <!-- Live Badge -->
+              <div
+                class="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded"
+              >
+                LIVE
+              </div>
+              <!-- User Info -->
+              <div class="absolute bottom-2 left-2 flex items-center gap-2">
+                <img
+                  class="w-[40px] h-[40px] rounded-full border-2 border-white"
+                  src="https://scontent.fdac138-2.fna.fbcdn.net/v/t39.30808-1/461136347_122106364766528083_4458622693417908386_n.jpg?stp=c0.0.1533.1533a_dst-jpg_s160x160_tt6&_nc_cat=102&ccb=1-7&_nc_sid=0ecb9b&_nc_ohc=fq08-htin-gQ7kNvgGsQax2&_nc_zt=24&_nc_ht=scontent.fdac138-2.fna&_nc_gid=AFu51xhZMdpGNLBTJidRBS4&oh=00_AYCvlvd-0FLTJSwPZzSqTtvX2RfUYawgC32ieAnt_6TBOQ&oe=67533D6B"
+                  alt=""
+                />
+                <p class="text-white text-sm font-semibold">Rakib Khan</p>
+              </div>
+            </div>
+
+            <!-- Duplicate this story item as needed -->
+          </div>
+        </div>
+        <div
+          class="justify-center flex gap-2 mt-4 shadow-xl mb-2 py-2 px-2 border"
+        >
+          <img
+            class="w-[40px] h-[40px] rounded-full object-cover"
+            src="https://pics.craiyon.com/2023-11-26/oMNPpACzTtO5OVERUZwh3Q.webp"
+            alt=""
+          />
+          <input
+            type="text"
+            placeholder="What's on your mind..."
+            class="border bg-bgColor py-2 px-2 rounded-sm focus:border-black w-[90%] outline-none"
+          />
+        </div>
+        <h2 class="text-xl font-medium">Recent Posts</h2>
+        <div class="pb-4">
+          <div class="shadow-xl bg-boxColor relative p-2 mt-2 border post-item">
+            <div class="custom-shaddow bg-bgColor absolute right-2 top-12 py-2">
+              <ul>
+                <li
+                  class="flex items-center gap-2 hover:bg-[#e0e0e0] cursor-pointer rounded-sm w-full px-2"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-trash"
+                  >
+                    <path d="M3 6h18" />
+                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
+                    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
+                  </svg>
+                  Delete Post
+                </li>
+              </ul>
+            </div>
+            <div class="flex justify-between items-center mb-4">
+              <div class="flex items-center gap-2">
+                <img
+                  class="w-[50px] h-[50px] rounded-full"
+                  src="https://pics.craiyon.com/2023-11-26/oMNPpACzTtO5OVERUZwh3Q.webp"
+                  alt=""
+                />
+                <div>
+                  <p>Md Shamim Mia</p>
+                  <span class="text-sm text-gray-500">1h Ago</span>
+                </div>
+              </div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="cursor-pointer lucide lucide-ellipsis-vertical"
+              >
+                <circle cx="12" cy="12" r="1" />
+                <circle cx="12" cy="5" r="1" />
+                <circle cx="12" cy="19" r="1" />
+              </svg>
+            </div>
+            <div class="mb-2">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad
+              eligendi aspernatur hic rem aliquam, cupiditate velit, quae
+              distinctio fugiat, deleniti tempore voluptatibus? Tempora eius,
+              aut perferendis facere nam rem aliquid.
+            </div>
+            <img
+              class="w-full"
+              src="https://images.pexels.com/photos/27571425/pexels-photo-27571425/free-photo-of-a-bridge-over-a-street-with-buildings-on-both-sides.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              alt=""
+            />
+            <hr class="mt-2" />
+            <div class="flex justify-between items-center">
+              <span
+                class="px-2 py-1 justify-center w-[80px] rounded-sm hover:bg-[#e0e0e0] cursor-pointer flex items-center gap-1"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-thumbs-up"
+                >
+                  <path d="M7 10v12" />
+                  <path
+                    d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"
+                  /></svg
+                >Like</span
+              >
+              <span
+                class="px-2 py-1 w-[120px] justify-center rounded-sm hover:bg-[#e0e0e0] cursor-pointer flex items-center gap-1"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-message-square"
+                >
+                  <path
+                    d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                  /></svg
+                >Comment</span
+              >
+              <span
+                class="px-2 py-1 w-[100px] justify-center rounded-sm hover:bg-[#e0e0e0] cursor-pointer flex items-center gap-1"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-share-2"
+                >
+                  <circle cx="18" cy="5" r="3" />
+                  <circle cx="6" cy="12" r="3" />
+                  <circle cx="18" cy="19" r="3" />
+                  <line x1="8.59" x2="15.42" y1="13.51" y2="17.49" />
+                  <line x1="15.41" x2="8.59" y1="6.51" y2="10.49" /></svg
+                >Share</span
+              >
+            </div>
+            <!-- comment hidden  -->
+            <div class="justify-center flex gap-2 mt-4">
+              <img
+                class="w-[40px] h-[40px] rounded-full object-cover"
+                src="https://pics.craiyon.com/2023-11-26/oMNPpACzTtO5OVERUZwh3Q.webp"
+                alt=""
+              />
+              <input
+                type="text"
+                placeholder="Write a comment..."
+                class="bg-bgColor py-2 px-2 rounded-sm focus:border-black w-[80%] border outline-none"
+              />
+              <button class="btn">Send</button>
+            </div>
+            <!-- comments  -->
+            <div class="justify-between hidden gap-2 mt-4">
+              <img
+                class="w-[40px] h-[40px] rounded-full object-cover"
+                src="https://scontent.fdac138-2.fna.fbcdn.net/v/t39.30808-6/461136347_122106364766528083_4458622693417908386_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=fq08-htin-gQ7kNvgGsQax2&_nc_zt=23&_nc_ht=scontent.fdac138-2.fna&_nc_gid=Art2XpjXg1I37ICUF6qY0iJ&oh=00_AYAwUumGv-F0QvCIgbJRtZQo_VkxK3PleNgdZvqV_BO4Aw&oe=67548E90"
+                alt=""
+              />
+              <div class="w-[90%]">
+                <h2>MD Shamim</h2>
+                <p class="text-sm text-gray-600">What The hell</p>
+                <p class="text-sm">1h Ago</p>
+              </div>
+              <hr class="mb-2" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="right hidden lg:block col-span-12 lg:col-span-4">
+        <h2 class="font-medium">Active Friends</h2>
+        <ul>
+          <li>
+            <a href="" class="flex items-center mt-2 gap-2">
+              <img
+                class="w-[40px] h-[40px] rounded-full object-cover"
+                src="https://pics.craiyon.com/2023-11-26/oMNPpACzTtO5OVERUZwh3Q.webp"
+                alt=""
+              />
+              <span> Md Shamim Mia</span></a
+            >
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

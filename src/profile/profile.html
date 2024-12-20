@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Page</title>
+    <link href="../output.css" rel="stylesheet" />
+  </head>
+  <body class="bg-gray-100 text-gray-800">
+    <!-- Header: Cover Photo and Profile Info -->
+    <div class="bg-white shadow-md">
+      <div class="relative">
+        <!-- Profile Picture -->
+        <div
+          class="relative bottom-[-50px] left-8 w-[120px] h-[120px] rounded-full border-4 border-white shadow-lg"
+        >
+          <img
+            src="https://pics.craiyon.com/2023-11-26/oMNPpACzTtO5OVERUZwh3Q.webp"
+            alt="Profile Picture"
+            class="rounded-full object-cover w-full h-full"
+          />
+          <div
+            class="absolute bottom-0 right-0 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-md cursor-pointer"
+            title="Edit Profile Picture"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-pencil"
+            >
+              <path
+                d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+              />
+              <path d="m15 5 4 4" />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <!-- User Info -->
+      <div class="pt-16 px-8 pb-4">
+        <h1 class="text-2xl font-bold">Md Shamim</h1>
+        <!-- <p class="text-gray-600">
+          Full Stack Developer | JavaScript Enthusiast
+        </p> -->
+        <button class="btn mt-2">Edit Your Profile</button>
+      </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <div class="bg-white shadow-md mt-4 sticky top-0 z-10">
+      <div class="flex justify-center gap-6 py-2">
+        <a href="#" class="text-blue-500 font-semibold hover:underline"
+          >Profile</a
+        >
+        <a href="#" class="text-blue-500 font-semibold hover:underline"
+          >Posts</a
+        >
+        <a href="#" class="text-gray-600 hover:text-blue-500">About</a>
+
+        <a href="#" class="text-gray-600 hover:text-blue-500">Photos</a>
+      </div>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="flex flex-col lg:flex-row gap-6 px-4 lg:px-16 py-6">
+      <!-- Left Column: About and Friends -->
+      <div class="w-full lg:w-1/3">
+        <!-- About Section -->
+        <div class="bg-white rounded-lg shadow-md p-4 mb-4">
+          <h2 class="text-lg font-semibold mb-2">About</h2>
+          <p class="text-sm text-gray-600">
+            Passionate Full Stack Developer with a focus on JavaScript and
+            Next.js.
+          </p>
+        </div>
+
+        <!-- Friends Section -->
+        <div class="bg-white rounded-lg shadow-md p-4">
+          <div class="flex justify-between items-center">
+            <h2 class="text-lg font-semibold mb-2">Friends</h2>
+            <a href="friends.html" class="text-sm text-blue-500 cursor-pointer"
+              >See All</a
+            >
+          </div>
+          <p class="text-gray-600 text-sm text-center">No Friends Found!</p>
+          <div class="grid grid-cols-3 gap-2">
+            <div>
+              <img
+                src="https://pics.craiyon.com/2023-11-26/oMNPpACzTtO5OVERUZwh3Q.webp"
+                alt="Friend 1"
+                class="rounded-lg"
+              />
+              <p class="text-xs text-center mt-1">Friend 1</p>
+            </div>
+            <div>
+              <img
+                src="https://pics.craiyon.com/2023-11-26/oMNPpACzTtO5OVERUZwh3Q.webp"
+                alt="Friend 2"
+                class="rounded-lg"
+              />
+              <p class="text-xs text-center mt-1">Friend 2</p>
+            </div>
+            <div>
+              <img
+                src="https://pics.craiyon.com/2023-11-26/oMNPpACzTtO5OVERUZwh3Q.webp"
+                alt="Friend 3"
+                class="rounded-lg"
+              />
+              <p class="text-xs text-center mt-1">Friend 3</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Posts -->
+      <div class="w-full lg:w-2/3">
+        <div class="bg-white rounded-lg shadow-md p-4 mb-4">
+          <!-- Create Post -->
+          <div class="flex items-center gap-4">
+            <img
+              src="https://pics.craiyon.com/2023-11-26/oMNPpACzTtO5OVERUZwh3Q.webp"
+              alt="Profile Picture"
+              class="rounded-full w-12 h-12"
+            />
+            <input
+              type="text"
+              placeholder="What's on your mind, Shamim?"
+              class="w-full bg-gray-100 p-2 rounded-full focus:outline-none"
+            />
+          </div>
+        </div>
+
+        <!-- Example Post -->
+        <div
+          class="bg-white rounded-lg shadow-md p-4 mb-2 flex justify-center items-center flex-col"
+        >
+          <p class="text-sm text-gray-600">No Post Found</p>
+          <button class="btn mt-2">Create New Post</button>
+        </div>
+        <div class="bg-white rounded-lg shadow-md p-4">
+          <div class="flex items-center gap-4 mb-2">
+            <img
+              src="https://pics.craiyon.com/2023-11-26/oMNPpACzTtO5OVERUZwh3Q.webp"
+              alt="Profile Picture"
+              class="rounded-full w-12 h-12"
+            />
+            <div>
+              <h3 class="font-semibold">Md Shamim</h3>
+              <p class="text-sm text-gray-500">2 hours ago</p>
+            </div>
+          </div>
+          <p class="text-gray-700 mb-2">
+            Just finished building a responsive profile page with Tailwind CSS!
+          </p>
+          <img
+            src="https://pics.craiyon.com/2023-11-26/oMNPpACzTtO5OVERUZwh3Q.webp"
+            alt="Post Image"
+            class="rounded-lg w-full"
+          />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

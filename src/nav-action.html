@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./output.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- header start  -->
+    <header class="shadow-md bg-white">
+      <div class="container py-2 mx-auto flex justify-between items-center">
+        <div class="flex items-center gap-4 w-full">
+          <div class="logo">Logo</div>
+          <div class="hidden sm:block sm:w-[80%] md:w-[50%] relative">
+            <input
+              type="text"
+              placeholder="Search"
+              class="w-full focus:border-black outline-none py-2 px-4 rounded-[30px] border"
+            />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="absolute right-2 top-3 lucide lucide-search"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.3-4.3" />
+            </svg>
+          </div>
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="relative cursor-pointer">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-user-plus"
+            >
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <line x1="19" x2="19" y1="8" y2="14" />
+              <line x1="22" x2="16" y1="11" y2="11" />
+            </svg>
+            <span
+              class="w-[20px] justify-center items-center text-xs absolute top-[-12px] text-white right-[-10px] flex h-[20px] rounded-full bg-primary"
+              >1k</span
+            >
+          </span>
+          <span class="relative cursor-pointer">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-message-square"
+            >
+              <path
+                d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+              />
+            </svg>
+            <span
+              class="w-[20px] justify-center items-center text-xs absolute top-[-12px] text-white right-[-10px] flex h-[20px] rounded-full bg-primary"
+              >1k</span
+            >
+          </span>
+          <span class="relative cursor-pointer">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-bell"
+            >
+              <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
+              <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
+            </svg>
+            <span
+              class="w-[20px] justify-center items-center text-xs absolute top-[-12px] text-white right-[-10px] flex h-[20px] rounded-full bg-primary"
+              >6k</span
+            >
+          </span>
+          <div class="w-[40px] h-[40px] cursor-pointer">
+            <img
+              class="w-full h-full rounded-full"
+              src="https://scontent.fdac138-1.fna.fbcdn.net/v/t39.30808-6/329951287_570241145023072_6736433956901739_n.jpg?_nc_cat=1&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=A4NIjtKGur8Q7kNvgH2vT2w&_nc_zt=23&_nc_ht=scontent.fdac138-1.fna&_nc_gid=AyyAaGpVM03yCh0cikyPTyV&oh=00_AYD4bMLTNoOoYdDem7mfoc4Ju4M3c4i8x4Icr59PbI6CAA&oe=674E04A7"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </header>
+    <div
+      class="nav-actions bg-white shadow-xl w-[300px] p-6 right-2 fixed top-[70px]"
+    >
+      <ul>
+        <li class="hover:bg-[#e0e0e0] p-2 cursor-pointer">
+          <a href="profile/profile.html" class="flex items-center gap-2 w-full">
+            <img
+              class="w-[40px] h-[40px] rounded-full"
+              src="https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              alt=""
+            />
+            <h2 class="text-xl font-medium">Md Shamim</h2>
+          </a>
+        </li>
+        <hr />
+      </ul>
+      <ul class="lg:hidden">
+        <li class="mt-2 hover:bg-[#e0e0e0] p-[2px]">
+          <a
+            href="pages/feed.html"
+            class="flex items-center gap-4 text-gray-600 cursor-pointer"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-layout-dashboard"
+            >
+              <rect width="7" height="9" x="3" y="3" rx="1" />
+              <rect width="7" height="5" x="14" y="3" rx="1" />
+              <rect width="7" height="9" x="14" y="12" rx="1" />
+              <rect width="7" height="5" x="3" y="16" rx="1" />
+            </svg>
+            <span>Feed</span></a
+          >
+        </li>
+        <li class="mt-2 hover:bg-[#e0e0e0] p-[2px]">
+          <a
+            class="flex items-center gap-4 text-gray-600 cursor-pointer"
+            href="pages/watch-video.html"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-users"
+            >
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+            <span>Friends</span></a
+          >
+        </li>
+        <li class="mt-2 hover:bg-[#e0e0e0] p-[2px]">
+          <a
+            class="flex items-center gap-4 text-gray-600 cursor-pointer"
+            href="pages/watch-video.html"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-tv-minimal-play"
+            >
+              <path
+                d="M10 7.75a.75.75 0 0 1 1.142-.638l3.664 2.249a.75.75 0 0 1 0 1.278l-3.664 2.25a.75.75 0 0 1-1.142-.64z"
+              />
+              <path d="M7 21h10" />
+              <rect width="20" height="14" x="2" y="3" rx="2" />
+            </svg>
+            <span>Watch Videos</span></a
+          >
+        </li>
+      </ul>
+      <button
+        class="flex w-full p-[2px] items-center gap-3 mt-2 hover:bg-[#e0e0e0]"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-log-out"
+        >
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+          <polyline points="16 17 21 12 16 7" />
+          <line x1="21" x2="9" y1="12" y2="12" />
+        </svg>
+        Log Out
+      </button>
+    </div>
+  </body>
+</html>

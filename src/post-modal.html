@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./output.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div
+      class="w-full flex justify-center items-center h-screen z-50 fixed left-0 top-0 bg-[rgba(0,0,0,0.5)]"
+    >
+      <div
+        class="bg-white rounded-lg w-[90%] h-[80vh] sm:w-[500px] flex flex-col"
+      >
+        <!-- Modal Header -->
+        <div class="flex justify-between items-center border-b p-4">
+          <h2 class="text-lg font-semibold">Create Post</h2>
+          <button id="close-modal" class="text-gray-500 hover:text-gray-800">
+            &times;
+          </button>
+        </div>
+
+        <!-- Modal Body -->
+        <div class="p-4 space-y-4 flex-1 overflow-y-auto">
+          <!-- User Info -->
+          <div class="flex items-center gap-4">
+            <div class="w-[50px] h-[50px]">
+              <img
+                class="w-full h-full rounded-full object-cover"
+                src="https://pics.craiyon.com/2023-11-26/oMNPpACzTtO5OVERUZwh3Q.webp"
+                alt="User Profile"
+              />
+            </div>
+            <div class="flex flex-col">
+              <span class="font-medium">Md Shamim</span>
+              <select class="text-left">
+                <option value="public">Public</option>
+                <option value="private">Private</option>
+                <option value="friends">Friends</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Rich Text Editor -->
+          <div class="border rounded-md">
+            <!-- Toolbar -->
+            <div class="flex items-center gap-2 bg-gray-100 p-2 border-b">
+              <button class="p-2 hover:bg-gray-200 rounded">
+                <strong>B</strong>
+              </button>
+              <button class="p-2 hover:bg-gray-200 rounded">
+                <em>I</em>
+              </button>
+              <button class="p-2 hover:bg-gray-200 rounded">
+                <u>U</u>
+              </button>
+              <button class="p-2 hover:bg-gray-200 rounded">
+                <strike>S</strike>
+              </button>
+              <button class="p-2 hover:bg-gray-200 rounded">•</button>
+              <button class="p-2 hover:bg-gray-200 rounded">1.</button>
+              <button class="p-2 hover:bg-gray-200 rounded">🔗</button>
+              <button class="p-2 hover:bg-gray-200 rounded">🖼️</button>
+            </div>
+            <!-- Content Area -->
+            <div
+              contenteditable="true"
+              class="p-4 h-[150px] outline-none overflow-y-auto"
+              placeholder="What's on your mind?"
+            ></div>
+          </div>
+
+          <!-- Photo Upload Section -->
+          <div class="border rounded-md p-4">
+            <div class="flex items-center justify-between">
+              <h3 class="text-sm font-medium">Add Photos</h3>
+            </div>
+            <div class="mt-2 flex flex-wrap gap-2">
+              <div
+                class="w-[80px] h-[80px] bg-gray-100 border rounded-md flex justify-center items-center"
+              >
+                <label
+                  for="photo-upload"
+                  class="cursor-pointer text-gray-500 text-sm"
+                >
+                  +
+                </label>
+                <input type="file" id="photo-upload" class="hidden" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Video Upload Section -->
+          <div class="border rounded-md p-4">
+            <div class="flex items-center justify-between">
+              <h3 class="text-sm font-medium">Add Videos</h3>
+            </div>
+            <div class="mt-2 flex flex-wrap gap-2">
+              <div
+                class="w-[80px] h-[80px] bg-gray-100 border rounded-md flex justify-center items-center"
+              >
+                <label
+                  for="video-upload"
+                  class="cursor-pointer text-gray-500 text-sm"
+                >
+                  +
+                </label>
+                <input type="file" id="video-upload" class="hidden" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Footer -->
+        <div class="border-t p-4 bg-white sticky bottom-0 flex justify-end">
+          <button
+            class="bg-primary text-white px-4 py-2 rounded-md hover:bg-blue-700"
+          >
+            Post
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

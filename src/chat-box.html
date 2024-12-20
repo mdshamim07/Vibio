@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./output.css" rel="stylesheet" />
+    <title>Chatbox UI</title>
+  </head>
+  <body class="bg-gray-100">
+    <!-- Header Start -->
+    <header class="shadow-md bg-white fixed top-0 w-full z-10">
+      <div class="container py-2 mx-auto flex justify-between items-center">
+        <div class="flex items-center gap-4 w-full">
+          <div class="logo font-bold text-lg">Logo</div>
+          <div class="hidden sm:block sm:w-[80%] md:w-[50%] relative">
+            <input
+              type="text"
+              placeholder="Search"
+              class="w-full focus:border-black outline-none py-2 px-4 rounded-[30px] border"
+            />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="absolute right-2 top-3 lucide lucide-search"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.3-4.3" />
+            </svg>
+          </div>
+        </div>
+        <div class="flex items-center gap-4">
+          <!-- Notification and Avatar Icons -->
+          <span class="relative cursor-pointer">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-bell"
+            >
+              <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
+              <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
+            </svg>
+            <span
+              class="w-[20px] absolute top-[-12px] text-xs right-[-10px] flex justify-center items-center h-[20px] text-white rounded-full bg-primary"
+              >6k</span
+            >
+          </span>
+          <div class="w-[40px] h-[40px] cursor-pointer">
+            <img
+              class="w-full h-full rounded-full"
+              src="https://via.placeholder.com/40"
+              alt="Avatar"
+            />
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Chat Container -->
+    <div class="container mx-auto mt-20 flex justify-end">
+      <!-- Chatbox Modal -->
+      <div
+        class="bg-white shadow-xl fixed right-2 bottom-4 rounded-lg w-[90%] sm:w-[400px] flex flex-col"
+      >
+        <!-- Modal Header -->
+        <div
+          class="flex gap-2 items-center border-b p-4 bg-gray-50 rounded-t-lg justify-between"
+        >
+          <div class="flex items-center gap-2">
+            <div
+              class="w-[50px] h-[50px] rounded-full bg-[#e0e0e0] flex justify-center items-center"
+            >
+              S
+            </div>
+            <div>
+              <h2>Md Shamim</h2>
+              <p class="flex items-center gap-2 text-sm text-gray-500">
+                Active Now
+                <span
+                  class="w-[10px] h-[10px] rounded-full bg-primary inline-block"
+                ></span>
+              </p>
+            </div>
+          </div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="cursor-pointer lucide lucide-x"
+          >
+            <path d="M18 6 6 18" />
+            <path d="m6 6 12 12" />
+          </svg>
+        </div>
+
+        <!-- Chat Messages Area -->
+        <div
+          class="p-4 h-[350px] md:h-[400px] overflow-y-auto flex flex-col gap-3"
+        >
+          <!-- Example Message Sent -->
+          <div class="flex justify-end">
+            <div class="bg-primary text-white py-2 px-4 rounded-lg max-w-[70%]">
+              Hi! How can I help you today?
+            </div>
+          </div>
+          <!-- Example Message Received -->
+          <div class="flex justify-start gap-3 items-start">
+            <!-- Sender Avatar -->
+            <div
+              class="relative w-[50px] h-[50px] rounded-full font-semibold flex justify-center items-center bg-[#e0e0e0]"
+            >
+              r
+            </div>
+
+            <!-- Message Bubble -->
+            <div
+              class="relative bg-gray-100 text-gray-800 py-2 px-4 rounded-2xl shadow-sm max-w-[70%]"
+            >
+              <p class="leading-relaxed text-sm">
+                I need some assistance with my account setup.
+              </p>
+              <!-- Subtle Triangle Pointer -->
+              <div
+                class="absolute top-3 left-[-8px] w-4 h-4 bg-gray-100 transform rotate-45 shadow-sm"
+              ></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chat Input Area -->
+        <div class="border-t py-2 px-4 flex items-center gap-2">
+          <!-- File Upload Icon -->
+          <label for="file-upload" class="cursor-pointer">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-paperclip"
+            >
+              <path d="M13.234 20.252 21 12.3" />
+              <path
+                d="m16 6-8.414 8.586a2 2 0 0 0 0 2.828 2 2 0 0 0 2.828 0l8.414-8.586a4 4 0 0 0 0-5.656 4 4 0 0 0-5.656 0l-8.415 8.585a6 6 0 1 0 8.486 8.486"
+              />
+            </svg>
+            <input type="file" id="file-upload" class="hidden" />
+          </label>
+
+          <!-- Input Field -->
+          <input
+            type="text"
+            placeholder="Type your message..."
+            class="w-full py-2 px-3 rounded-full border focus:outline-none focus:ring-2 focus:ring-primary"
+          />
+
+          <!-- Send Button -->
+          <button
+            class="bg-primary hover:bg-hover text-white py-2 px-4 rounded-full"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-send"
+            >
+              <path
+                d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"
+              />
+              <path d="m21.854 2.147-10.94 10.939" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

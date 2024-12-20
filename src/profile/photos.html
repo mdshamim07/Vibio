@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photos - Profile Page</title>
+    <link href="../output.css" rel="stylesheet" />
+  </head>
+
+  <body class="bg-gray-100 text-gray-800">
+    <!-- Header: Same as Profile Page -->
+    <div class="bg-white shadow-md">
+      <div class="relative">
+        <!-- Cover Photo -->
+        <img
+          src="https://via.placeholder.com/1200x400"
+          alt="Cover Photo"
+          class="w-full h-[250px] object-cover"
+        />
+        <!-- Profile Picture -->
+        <div
+          class="absolute bottom-[-50px] left-8 w-[120px] h-[120px] rounded-full border-4 border-white shadow-lg"
+        >
+          <img
+            src="https://via.placeholder.com/120"
+            alt="Profile Picture"
+            class="rounded-full object-cover w-full h-full"
+          />
+        </div>
+      </div>
+      <!-- User Info -->
+      <div class="pt-16 px-8 pb-4">
+        <h1 class="text-2xl font-bold">Md Shamim</h1>
+        <p class="text-gray-600">
+          Full Stack Developer | JavaScript Enthusiast
+        </p>
+      </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <div class="bg-white shadow-md mt-4 sticky top-0 z-10">
+      <div class="flex justify-center gap-6 py-2">
+        <a href="#" class="text-gray-600 hover:text-blue-500">Posts</a>
+        <a href="#" class="text-gray-600 hover:text-blue-500">About</a>
+        <a href="#" class="text-gray-600 hover:text-blue-500">Friends</a>
+        <a href="#" class="text-blue-500 font-semibold hover:underline"
+          >Photos</a
+        >
+      </div>
+    </div>
+
+    <!-- Photos Section -->
+    <div class="max-w-6xl mx-auto px-4 py-8">
+      <div class="bg-white rounded-lg shadow-md p-6">
+        <h2 class="text-2xl font-bold mb-6">Photos</h2>
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+        >
+          <!-- Photo Items -->
+          <div class="relative overflow-hidden rounded-lg shadow-md">
+            <img
+              src="https://via.placeholder.com/300"
+              alt="Photo 1"
+              class="w-full h-[200px] object-cover hover:scale-110 transition-transform"
+            />
+          </div>
+          <div class="relative overflow-hidden rounded-lg shadow-md">
+            <img
+              src="https://via.placeholder.com/300"
+              alt="Photo 2"
+              class="w-full h-[200px] object-cover hover:scale-110 transition-transform"
+            />
+          </div>
+          <div class="relative overflow-hidden rounded-lg shadow-md">
+            <img
+              src="https://via.placeholder.com/300"
+              alt="Photo 3"
+              class="w-full h-[200px] object-cover hover:scale-110 transition-transform"
+            />
+          </div>
+          <div class="relative overflow-hidden rounded-lg shadow-md">
+            <img
+              src="https://via.placeholder.com/300"
+              alt="Photo 4"
+              class="w-full h-[200px] object-cover hover:scale-110 transition-transform"
+            />
+          </div>
+          <div class="relative overflow-hidden rounded-lg shadow-md">
+            <img
+              src="https://via.placeholder.com/300"
+              alt="Photo 5"
+              class="w-full h-[200px] object-cover hover:scale-110 transition-transform"
+            />
+          </div>
+          <div class="relative overflow-hidden rounded-lg shadow-md">
+            <img
+              src="https://via.placeholder.com/300"
+              alt="Photo 6"
+              class="w-full h-[200px] object-cover hover:scale-110 transition-transform"
+            />
+          </div>
+          <div class="relative overflow-hidden rounded-lg shadow-md">
+            <img
+              src="https://via.placeholder.com/300"
+              alt="Photo 7"
+              class="w-full h-[200px] object-cover hover:scale-110 transition-transform"
+            />
+          </div>
+          <div class="relative overflow-hidden rounded-lg shadow-md">
+            <img
+              src="https://via.placeholder.com/300"
+              alt="Photo 8"
+              class="w-full h-[200px] object-cover hover:scale-110 transition-transform"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

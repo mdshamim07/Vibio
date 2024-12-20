@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat Box UI</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-100">
+    <!-- Header Start -->
+    <header class="shadow-md bg-white">
+      <div class="container py-2 mx-auto flex justify-between items-center">
+        <div class="flex items-center gap-4 w-full">
+          <!-- Logo -->
+          <div class="logo font-bold text-lg">Logo</div>
+
+          <!-- Search Bar -->
+          <div class="hidden sm:block sm:w-[80%] md:w-[50%] relative">
+            <input
+              type="text"
+              placeholder="Search"
+              class="w-full focus:border-black outline-none py-2 px-4 rounded-[30px] border"
+            />
+            <!-- Search Icon -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="absolute right-2 top-3 text-gray-500"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.3-4.3" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Icons and Profile -->
+        <div class="flex items-center gap-4">
+          <!-- User Plus -->
+          <span class="relative cursor-pointer">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <line x1="19" x2="19" y1="8" y2="14" />
+              <line x1="22" x2="16" y1="11" y2="11" />
+            </svg>
+            <span
+              class="absolute -top-2 -right-2 text-xs text-white bg-primary rounded-full w-5 h-5 flex items-center justify-center"
+              >1k</span
+            >
+          </span>
+
+          <!-- Notifications -->
+          <span class="relative cursor-pointer">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-bell"
+            >
+              <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
+              <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
+            </svg>
+            <span
+              class="absolute -top-2 -right-2 text-xs text-white bg-primary rounded-full w-5 h-5 flex items-center justify-center"
+              >6k</span
+            >
+          </span>
+
+          <!-- Profile Image -->
+          <div class="w-[40px] h-[40px] cursor-pointer">
+            <img
+              class="w-full h-full rounded-full"
+              src="https://via.placeholder.com/40"
+              alt="Profile Image"
+            />
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Main Content -->
+    <div class="container mx-auto mt-4 flex">
+      <!-- Content Left -->
+      <div class="w-full lg:w-2/3 p-4">
+        <h1 class="text-2xl font-semibold">Welcome to the Chat UI</h1>
+        <p class="text-gray-600 mt-2">
+          This is the main content area. It can include posts, feeds, or other
+          content.
+        </p>
+      </div>
+
+      <!-- Chat Modal on Right -->
+      <div class="hidden lg:block lg:w-1/3 fixed top-16 right-2">
+        <div class="bg-white shadow-lg rounded-lg">
+          <!-- Chat Modal Header -->
+          <div class="flex justify-between items-center p-4 border-b">
+            <h2 class="font-semibold text-lg">Chats</h2>
+            <button
+              id="close-chat-modal"
+              class="text-gray-500 hover:text-gray-800"
+            >
+              &times;
+            </button>
+          </div>
+
+          <!-- Chat Modal Body -->
+          <div class="p-4 h-[500px] overflow-y-auto">
+            <h3 class="text-gray-700 font-medium mb-2">Active Chats</h3>
+            <div class="space-y-4">
+              <!-- Example Chat Items -->
+              <div
+                class="flex items-center gap-3 cursor-pointer hover:bg-gray-100 p-2 rounded-lg"
+              >
+                <div class="w-[50px] h-[50px]">
+                  <img
+                    class="w-full h-full rounded-full"
+                    src="https://via.placeholder.com/40"
+                    alt="User"
+                  />
+                </div>
+                <div class="w-full">
+                  <p class="text-sm font-medium">Jane Doe</p>
+                  <span class="text-xs text-gray-500">Typing...</span>
+                </div>
+                <span class="text-xs text-gray-400">2m</span>
+              </div>
+              <!-- Repeat similar blocks -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
