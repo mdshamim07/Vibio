@@ -702,10 +702,6 @@ video {
   top: -12px;
 }
 
-.top-\[-50px\]{
-  top: -50px;
-}
-
 .top-\[10\%\]{
   top: 10%;
 }
@@ -860,6 +856,10 @@ video {
   height: 150px;
 }
 
+.h-\[200px\]{
+  height: 200px;
+}
+
 .h-\[20px\]{
   height: 20px;
 }
@@ -918,10 +918,6 @@ video {
 
 .h-screen{
   height: 100vh;
-}
-
-.h-\[200px\]{
-  height: 200px;
 }
 
 .min-h-screen{
