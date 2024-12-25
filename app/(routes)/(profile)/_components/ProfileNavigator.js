@@ -8,7 +8,7 @@ export const profileNavigations = [
   },
   {
     id: 2,
-    title: "Post",
+    title: "Posts",
     href: "/profile/post",
   },
   {

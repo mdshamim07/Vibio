@@ -1,6 +1,6 @@
 export default function page() {
   return (
-    <div className="flex flex-col lg:flex-row gap-6 px-4 lg:px-16 py-6">
+    <div className=" flex flex-col lg:flex-row gap-6 px-4 lg:px-16 py-6">
       {/* Left Column: About and Friends */}
       <div className="w-full lg:w-1/3">
         {/* About Section */}
