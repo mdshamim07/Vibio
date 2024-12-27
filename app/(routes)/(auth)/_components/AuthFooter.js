@@ -1,7 +1,7 @@
 import Link from "next/link";
 export default function AuthFooter({ mode }) {
   return (
-    <p className=" text-center text-gray-600 mt-4">
+    <div className=" text-center text-gray-600 mt-4">
       {mode === "signup" ? (
         <>
           Already have an account?
@@ -18,6 +18,6 @@ export default function AuthFooter({ mode }) {
           </Link>
         </>
       )}
-    </p>
+    </div>
   );
 }

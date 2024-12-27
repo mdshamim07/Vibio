@@ -5,9 +5,9 @@ import NavProfilePic from "./NavProfilePic";
 import SearchBox from "./SearchBox";
 
 export default function Navbar() {
-  const user = false;
+  const user = true;
   return (
-    <nav className="shadow-md bg-white">
+    <div className="shadow-md bg-white">
       <div className="container py-2 mx-auto flex justify-between items-center">
         <div className="flex items-center gap-4 w-full">
           <Logo />
@@ -26,6 +26,6 @@ export default function Navbar() {
           )}
         </div>
       </div>
-    </nav>
+    </div>
   );
 }

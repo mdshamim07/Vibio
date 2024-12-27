@@ -1,5 +1,4 @@
 import Modals from "./components/Modals/Modals";
-
 import Navbar from "./components/Navbar";
 import "./globals.css";
 import MediaProvider from "./providers/MediaProvider";

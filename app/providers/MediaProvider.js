@@ -15,6 +15,7 @@ export default function MediaProvider({ children }) {
     richTextContent: "",
     navContent: false,
   });
+
   return (
     <MediaContext.Provider value={{ media, setMedia }}>
       {children}

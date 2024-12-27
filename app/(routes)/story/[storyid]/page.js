@@ -1,15 +1,13 @@
-import StoryContent from "./_components/StoryContent";
 import StoryNextButton from "./_components/StoryNextButton";
 import StoryPreviousButton from "./_components/StoryPreviousButton";
-import StoryTimeLine from "./_components/StoryTimeLine";
+import StoryViewItem from "./_components/StoryViewItem";
 
 export default function page() {
   return (
     <>
       <StoryPreviousButton />
+      <StoryViewItem />
       <StoryNextButton />
-      <StoryTimeLine />
-      <StoryContent />
     </>
   );
 }
