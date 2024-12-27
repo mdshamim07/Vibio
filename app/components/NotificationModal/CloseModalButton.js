@@ -30,6 +30,11 @@ export default function CloseModalButton({ mode }) {
         ...media,
         shareModal: false,
       });
+    } else if (mode === "storyModal") {
+      setMedia({
+        ...media,
+        storyModal: false,
+      });
     }
   }
   return (

@@ -12,6 +12,8 @@ export default function MediaProvider({ children }) {
     commentSection: false,
     shareModal: false,
     storyModal: false,
+    richTextContent: "",
+    navContent: false,
   });
   return (
     <MediaContext.Provider value={{ media, setMedia }}>

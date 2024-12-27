@@ -1,3 +1,9 @@
+import Link from "next/link";
+
 export default function Logo() {
-  return <div className="logo">Logo</div>;
+  return (
+    <Link href="/" className="logo">
+      Logo
+    </Link>
+  );
 }

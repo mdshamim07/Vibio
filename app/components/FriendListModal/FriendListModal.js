@@ -3,11 +3,11 @@ import CloseModalButton from "../NotificationModal/CloseModalButton";
 export default function FriendListModal() {
   return (
     <div id="modal">
-      <div className="bg-white fixed right-2 top-16 rounded-lg w-[90%] sm:w-[400px]">
+      <div className="bg-white fixed right-2 top-16 rounded-lg z-50 w-[90%] sm:w-[400px]">
         {/* Modal Header */}
         <div className="flex justify-between items-center border-b p-4">
           <h2 className="text-lg font-semibold">Friend Requests</h2>
-        <CloseModalButton mode="friendList"/>
+          <CloseModalButton mode="friendList" />
         </div>
         {/* Modal Body */}
         <div className="p-4 h-[400px] overflow-y-auto">

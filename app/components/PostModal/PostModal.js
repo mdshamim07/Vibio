@@ -1,4 +1,5 @@
 import CloseModalButton from "../NotificationModal/CloseModalButton";
+import RichTextEditor from "../RichTextEditor";
 
 export default function PostModal() {
   return (
@@ -7,7 +8,7 @@ export default function PostModal() {
         {/* Modal Header */}
         <div className="flex justify-between items-center border-b p-4">
           <h2 className="text-lg font-semibold">Create Post</h2>
-         <CloseModalButton mode="postModal"/>
+          <CloseModalButton mode="postModal" />
         </div>
         {/* Modal Body */}
         <div className="p-4 space-y-4 flex-1 overflow-y-auto">
@@ -30,33 +31,7 @@ export default function PostModal() {
             </div>
           </div>
           {/* Rich Text Editor */}
-          <div className="border rounded-md">
-            {/* Toolbar */}
-            <div className="flex items-center gap-2 bg-gray-100 p-2 border-b">
-              <button className="p-2 hover:bg-gray-200 rounded">
-                <strong>B</strong>
-              </button>
-              <button className="p-2 hover:bg-gray-200 rounded">
-                <em>I</em>
-              </button>
-              <button className="p-2 hover:bg-gray-200 rounded">
-                <u>U</u>
-              </button>
-              <button className="p-2 hover:bg-gray-200 rounded">
-                <strike>S</strike>
-              </button>
-              <button className="p-2 hover:bg-gray-200 rounded">•</button>
-              <button className="p-2 hover:bg-gray-200 rounded">1.</button>
-              <button className="p-2 hover:bg-gray-200 rounded">🔗</button>
-              <button className="p-2 hover:bg-gray-200 rounded">🖼️</button>
-            </div>
-            {/* Content Area */}
-            <div
-              contentEditable="true"
-              className="p-4 h-[150px] outline-none overflow-y-auto"
-              placeholder="What's on your mind?"
-            />
-          </div>
+          <RichTextEditor />
           {/* Photo Upload Section */}
           <div className="border rounded-md p-4">
             <div className="flex items-center justify-between">

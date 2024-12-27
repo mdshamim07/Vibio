@@ -2,12 +2,12 @@ import CloseModalButton from "../NotificationModal/CloseModalButton";
 
 export default function ChatListModal() {
   return (
-    <div className="hidden lg:block lg:w-1/3 fixed top-16 right-2">
+    <div className="hidden lg:block lg:w-1/3 fixed top-16 right-2 z-50">
       <div className="bg-white shadow-lg rounded-lg">
         {/* Chat Modal Header */}
         <div className="flex justify-between items-center p-4 border-b">
           <h2 className="font-semibold text-lg">Chats</h2>
-        <CloseModalButton mode="chatList"/>
+          <CloseModalButton mode="chatList" />
         </div>
         {/* Chat Modal Body */}
         <div className="p-4 h-[500px] overflow-y-auto">
