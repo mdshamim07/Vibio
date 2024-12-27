@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default function loginPage() {
   return (
-    <div className="bg-white mt-2 p-8 rounded-lg shadow-lg max-w-md w-full">
+    <div className="bg-white  mt-2 p-8 rounded-lg shadow-lg max-w-md w-full">
       <div id="create-account-section">
         <AuthPageTitle title="Welcome Back">
           Login to your account to continue.

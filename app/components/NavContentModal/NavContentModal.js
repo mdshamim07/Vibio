@@ -1,20 +1,10 @@
+import ProfileAction from "./ProfileAction";
+
 export default function NavContentModal() {
   return (
-    <div className="nav-actions bg-white shadow-xl w-[300px] p-6 right-2 fixed top-[70px]">
+    <div className="nav-actions z-50 bg-white shadow-xl w-[300px] p-6 right-2 fixed top-[70px]">
       <ul>
-        <li className="hover:bg-[#e0e0e0] p-2 cursor-pointer">
-          <a
-            href="profile/profile.html"
-            className="flex items-center gap-2 w-full"
-          >
-            <img
-              className="w-[40px] h-[40px] rounded-full"
-              src="https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-              alt=""
-            />
-            <h2 className="text-xl font-medium">Md Shamim</h2>
-          </a>
-        </li>
+        <ProfileAction />
         <hr />
       </ul>
       <ul className="lg:hidden">
