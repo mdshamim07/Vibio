@@ -67,6 +67,7 @@ export default function SignupForm() {
         {error && <CommonErrorMessage>{error}</CommonErrorMessage>}
         <div className="grid grid-cols-2 gap-4 mb-4">
           <InputField
+            isDisabled={loading ? true : false}
             label="First Name"
             placeholder="First Name"
             type="text"
@@ -74,6 +75,7 @@ export default function SignupForm() {
             name="firstName"
           />
           <InputField
+            isDisabled={loading ? true : false}
             label="Last Name"
             placeholder="Last Name"
             type="text"
@@ -86,6 +88,7 @@ export default function SignupForm() {
         <Gender />
         <div className="mb-4">
           <InputField
+            isDisabled={loading ? true : false}
             label="Email address"
             placeholder="Email address"
             type="email"
@@ -95,6 +98,7 @@ export default function SignupForm() {
         </div>
         <div className="mb-4">
           <InputField
+            isDisabled={loading ? true : false}
             label="New Password"
             placeholder="New Password"
             type="password"

@@ -9,6 +9,7 @@ export default function InputField({
   error,
   customClass,
   mode,
+  isDisabled,
 }) {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -26,6 +27,7 @@ export default function InputField({
       </label>
       <div className="relative">
         <input
+          disabled={isDisabled}
           name={name}
           type={showPassword ? "text" : type || "text"} // Toggle between "text" and "password"
           placeholder={placeholder || "Enter Something"}
