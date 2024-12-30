@@ -3,9 +3,11 @@ import Logo from "./Logo";
 import NavActions from "./NavActions";
 import NavProfilePic from "./NavProfilePic";
 import SearchBox from "./SearchBox";
+import { getUser } from "@/actions";
 
-export default function Navbar() {
-  const user = true;
+export default async function Navbar() {
+  const user = await getUser();
+
   return (
     <div className="shadow-md bg-white">
       <div className="container py-2 mx-auto flex justify-between items-center">
@@ -17,7 +19,10 @@ export default function Navbar() {
           {user ? (
             <>
               <NavActions />
-              <NavProfilePic />
+              <NavProfilePic
+                avatar={user ? user?.avatar : "No Avatar"}
+                firstName={user ? user?.firstName : "No Name"}
+              />
             </>
           ) : (
             <Link href="/login" className="btn">

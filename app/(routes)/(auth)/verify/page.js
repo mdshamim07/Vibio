@@ -10,7 +10,7 @@ export default async function page({ searchParams }) {
       {getParams?.user ? (
         <>
           <OtpPageTitle title="Verify Your OTP">
-            Enter the 6-digit code we sent to your email or phone number.
+            Enter the 6-digit code we sent to your email address.
           </OtpPageTitle>
           <OtpForm userId={getParams?.user}>
             {/* OTP Input */}

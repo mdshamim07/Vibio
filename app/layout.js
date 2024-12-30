@@ -10,6 +10,7 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   const user = await getUser();
+ 
   return (
     <html lang="en">
       <body className=" bg-gray-100">

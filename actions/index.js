@@ -2,7 +2,7 @@
 import postData from "@/utils/postData";
 import { cookies } from "next/headers";
 import verifyOtpQuery from "@/queries/verifyOtp";
-import { UserModel } from "@/models/UserModel";
+import getUserById from "@/queries/getUserById";
 
 export async function createUserAction(data) {
   try {
@@ -36,7 +36,28 @@ export async function verifyOtp(userId, otp) {
 export async function getUser() {
   const cookieStore = await cookies();
   const cookie = cookieStore.get("user");
+
+  if (!cookie) {
+    // Return null or a specific value to indicate no user is logged in
+    return null;
+  }
+
   const userId = cookie.value;
-  const user = await getUser(userId);
-  console.log(user);
+
+  // Add a safeguard to avoid calling getUserById with an empty or invalid userId
+  if (!userId) {
+    return null;
+  }
+
+  try {
+    const user = await getUserById(userId);
+    return user;
+  } catch (error) {
+    console.error("Error fetching user:", error.message);
+    return null;
+  }
+}
+
+export async function logOutAction() {
+  (await cookies()).delete("user");
 }

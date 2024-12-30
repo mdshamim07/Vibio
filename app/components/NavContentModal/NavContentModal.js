@@ -1,10 +1,17 @@
+import { getUser } from "@/actions";
 import ProfileAction from "./ProfileAction";
+import LogOutButton from "./LogOutButton";
 
-export default function NavContentModal() {
+export default async function NavContentModal() {
+  const user = await getUser();
   return (
     <div className="nav-actions z-50 bg-white shadow-xl w-[300px] p-6 right-2 fixed top-[70px]">
       <ul>
-        <ProfileAction />
+        <ProfileAction
+          avatar={user ? user?.avatar : "No Avatar"}
+          firstName={user ? user?.firstName : "No"}
+          lastName={user ? user?.lastName : "Name"}
+        />
         <hr />
       </ul>
       <ul className="lg:hidden">
@@ -83,25 +90,7 @@ export default function NavContentModal() {
           </a>
         </li>
       </ul>
-      <button className="flex w-full p-[2px] items-center gap-3 mt-2 hover:bg-[#e0e0e0]">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width={20}
-          height={20}
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="lucide lucide-log-out"
-        >
-          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
-          <polyline points="16 17 21 12 16 7" />
-          <line x1={21} x2={9} y1={12} y2={12} />
-        </svg>
-        Log Out
-      </button>
+      <LogOutButton />
     </div>
   );
 }
