@@ -1,3 +1,5 @@
+import ChatBoxModal from "../ChatBoxModal/ChatBoxModal";
+import ChatBoxModalContainer from "../ChatBoxModal/ChatBoxModalContainer";
 import ChatListModal from "../ChatListModal/ChatListModal";
 import ChatListModalContainer from "../ChatListModal/ChatListModalContainer";
 import FriendListModal from "../FriendListModal/FriendListModal";
@@ -37,6 +39,9 @@ export default function Modals() {
       <NavContentModalContainer>
         <NavContentModal />
       </NavContentModalContainer>
+      <ChatBoxModalContainer>
+        <ChatBoxModal />
+      </ChatBoxModalContainer>
     </>
   );
 }

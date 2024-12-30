@@ -1,11 +1,11 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function DateOfBirthOptions() {
   const [day, setDay] = useState("");
   const [month, setMonth] = useState("");
   const [year, setYear] = useState("");
-
+  const [date, setDate] = useState("");
   const days = Array.from({ length: 31 }, (_, i) => i + 1); // Days 1-31
   const months = [
     "Jan",
@@ -23,7 +23,13 @@ export default function DateOfBirthOptions() {
   ];
   const currentYear = new Date().getFullYear();
   const years = Array.from({ length: 120 }, (_, i) => currentYear - i); // Last 120 years
-
+  useEffect(() => {
+    if (day.length === 0 && month.length === 0 && year.length === 0) {
+      setDate("");
+    } else {
+      setDate(`${day}/${month}/${year}`);
+    }
+  }, [day, month, year]);
   return (
     <div className="mb-4">
       <label
@@ -32,6 +38,7 @@ export default function DateOfBirthOptions() {
       >
         Date of Birth
       </label>
+      <input type="hidden" name="dateOfBirth" defaultValue={date} />
       <div className="grid grid-cols-3 gap-2">
         {/* Day */}
         <select
@@ -41,7 +48,9 @@ export default function DateOfBirthOptions() {
             setDay(e.target.value);
           }}
         >
-          <option value="">Day</option>
+          <option value="" disabled>
+            Day
+          </option>
           {days.map((d) => (
             <option key={d} value={d}>
               {d}

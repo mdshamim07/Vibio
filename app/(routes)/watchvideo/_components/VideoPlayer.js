@@ -76,7 +76,7 @@ export default function VideoPlayer() {
           type="range"
           name=""
           id=""
-          className="h-[3px] w-[55px] absolute right-0 z-50 bottom-6 rotate-[270deg]"
+          className="h-[3px] z-40 w-[55px] absolute right-0 bottom-6 rotate-[270deg]"
         />
       </div>
       <div className="absolute bottom-10 w-full flex justify-center items-center">
