@@ -37,9 +37,9 @@ export default function SignupForm() {
       }
 
       const response = await createUserAction(data);
-
+      console.log(response);
       if (response.ok) {
-        router.push(`/verify?user=${response?.data?.id}`);
+        // router.push(`/verify?user=${response?.data?.id}`);
       } else {
         setError(response.message);
       }

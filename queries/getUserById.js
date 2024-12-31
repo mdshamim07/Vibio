@@ -4,7 +4,6 @@ import { UserModel } from "@/models/UserModel";
 import mongoose from "mongoose";
 
 export default async function getUserById(userId) {
- 
   try {
     // Validate the userId before proceeding
     if (!userId || !mongoose.Types.ObjectId.isValid(userId)) {
