@@ -29,7 +29,10 @@ export async function verifyOtp(userId, otp) {
       return response;
     }
   } catch (err) {
-    throw new Error(err);
+    return {
+      error: true,
+      message: err.message,
+    };
   }
 }
 
