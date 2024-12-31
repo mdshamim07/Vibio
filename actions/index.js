@@ -12,7 +12,10 @@ export async function createUserAction(data) {
     );
     return response;
   } catch (err) {
-    throw new Error(err);
+    return {
+      error: true,
+      message: err.message,
+    };
   }
 }
 
@@ -56,8 +59,10 @@ export async function getUser() {
     const user = await getUserById(userId);
     return user;
   } catch (error) {
-    console.error("Error fetching user:", error.message);
-    return null;
+    return {
+      error: true,
+      message: err.message,
+    };
   }
 }
 
