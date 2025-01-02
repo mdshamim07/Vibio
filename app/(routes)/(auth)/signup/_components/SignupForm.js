@@ -7,6 +7,7 @@ import CommonErrorMessage from "../../_components/CommonErrorMessage";
 import { createUserAction } from "@/actions";
 import Button from "@/app/components/Button";
 import { useRouter } from "next/navigation";
+import LoadingLine from "@/app/components/LoadingLine";
 
 export default function SignupForm() {
   const [loading, setLoading] = useState(false);
@@ -37,9 +38,9 @@ export default function SignupForm() {
       }
 
       const response = await createUserAction(data);
-      console.log(response);
+
       if (response.ok) {
-        // router.push(`/verify?user=${response?.data?.id}`);
+        router.push(`/verify?user=${response?.data?.id}`);
       } else {
         setError(response.message);
       }
@@ -58,11 +59,7 @@ export default function SignupForm() {
 
   return (
     <form onSubmit={handleCreateUser}>
-      {loading && (
-        <div className="mb-4 mt-4 loading-bar bg-secondaryBg">
-          <div className="loading-progress bg-primary"></div>
-        </div>
-      )}
+      {loading && <LoadingLine />}
       <div className={`${loading ? "opacity-50" : "opacity-100"}`}>
         {error && <CommonErrorMessage>{error}</CommonErrorMessage>}
         <div className="grid grid-cols-2 gap-4 mb-4">

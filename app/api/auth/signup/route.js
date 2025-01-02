@@ -5,6 +5,7 @@ import { UserModel } from "@/models/UserModel";
 import getResponse from "../../helpers/getResponse";
 import formateMongo from "../../helpers/formateMongo";
 import generateOtp from "@/utils/generateOtp";
+import postData from "@/utils/postData";
 export async function POST(request) {
   const { firstName, lastName, email, password, gender, dateOfBirth } =
     await request.json();
@@ -51,21 +52,29 @@ export async function POST(request) {
     const parshedUser = formateMongo(createUser);
     delete parshedUser.password;
     if (createUser) {
-      return getResponse(200, true, "User Created Successfully!", {
-        firstName: parshedUser.firstName,
-        lastName: parshedUser.lastName,
-        email: parshedUser.email,
-        id: parshedUser?._id,
-      });
+      const otpResponse = await postData(
+        `${process.env.API_KEY}/${process.env.OTP_URI}`,
+        {
+          email: email.trim(),
+          otp: createUser?.otp,
+          name: firstName + lastName,
+        }
+      );
+      if (otpResponse.ok) {
+        return getResponse(200, true, "User Created Successfully!", {
+          firstName: parshedUser.firstName,
+          lastName: parshedUser.lastName,
+          email: parshedUser.email,
+          id: parshedUser?._id,
+        });
+      } else {
+        return getResponse(401, false, "Authentication failed!");
+      }
     }
   } catch (err) {
     if (err?.code === 11000) {
       return getResponse(401, false, "This email address already exist!");
     }
-    return getResponse(
-      500,
-      false,
-      "Internal server error please try again later!"
-    );
+    return getResponse(500, false, err.message);
   }
 }

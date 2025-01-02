@@ -1,9 +1,9 @@
-import InputField from "@/app/components/InputField";
 
 import AuthPageTitle from "../_components/AuthPageTitle";
-import Button from "@/app/components/Button";
+
 import AuthFooter from "../_components/AuthFooter";
 import Link from "next/link";
+import LoginForm from "./_components/LoginForm";
 
 export default function loginPage() {
   return (
@@ -12,29 +12,7 @@ export default function loginPage() {
         <AuthPageTitle title="Welcome Back">
           Login to your account to continue.
         </AuthPageTitle>
-        <form method="POST">
-          <div className="mb-4">
-            <InputField
-              label="Email Or Phone Number"
-              placeholder="Email Or Phone Number"
-              type="email"
-              error={false}
-              name="mobileOrEmail"
-            />
-          </div>
-          <div className="mb-4">
-            {" "}
-            <InputField
-              label="Password"
-              placeholder="Password"
-              type="password"
-              error={false}
-              name="password"
-            />
-          </div>
-
-          <Button loading={false}>Login</Button>
-        </form>
+        <LoginForm />
         <div className="flex items-center justify-between mt-2 mb-6">
           <Link
             href="/resetpassword"

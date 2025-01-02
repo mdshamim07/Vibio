@@ -14,11 +14,15 @@ export default async function verifyOtpQuery(userId, otpValue) {
         };
       } else {
         if (response.otp === parseInt(otpValue)) {
-          const verifyOtp = await UserModel.updateOne(
+           await UserModel.updateOne(
             {
               _id: userId,
             },
-            { otp: parseInt(otpValue), active: true }
+            {
+              otp: parseInt(otpValue),
+              active: true,
+              otp: process.env.VALID_OTP,
+            }
           );
           return {
             ok: true,

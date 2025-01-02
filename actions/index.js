@@ -10,7 +10,6 @@ export async function createUserAction(data) {
       `${process.env.API_KEY}/${process.env.SIGN_UP_URI}`,
       data
     );
-   
     return response;
   } catch (err) {
     return {

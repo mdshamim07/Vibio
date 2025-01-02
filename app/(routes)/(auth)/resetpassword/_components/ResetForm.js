@@ -4,6 +4,7 @@ import InputField from "@/app/components/InputField";
 import { useState } from "react";
 import VerifyInputs from "../../verify/_components/VerifyInputs";
 import CommonErrorMessage from "../../_components/CommonErrorMessage";
+import sendResetLinkAction from "@/actions/sendResetLinkAction";
 
 export default function ResetForm() {
   const [resetState, setResetState] = useState({
@@ -13,29 +14,31 @@ export default function ResetForm() {
     field: "email",
   });
   const [error, setError] = useState(null);
-  const handleGetOtp = (e) => {
+  async function handleGetOtp(e) {
     e.preventDefault();
 
     const emailField = e.target.email?.value;
     if (!emailField) {
-      alert("Please enter a valid email address.");
-      return;
+      setError("Email is required!");
+    } else {
+      const response = await sendResetLinkAction(emailField.trim());
+      console.log(response);
+      if (response.ok) {
+        setResetState({
+          ...resetState,
+          field: "otp",
+          resetPageTitle: "Verify Your OTP",
+          resetPageDescription:
+            "Enter the 6-digit code we sent to your email or phone number.",
+        });
+      } else {
+        setError(response.message);
+      }
     }
 
     // Mock API response
-    const response = { ok: true };
-
-    if (response.ok) {
-      setResetState({
-        ...resetState,
-        field: "otp",
-        resetPageTitle: "Verify Your OTP",
-        resetPageDescription:
-          "Enter the 6-digit code we sent to your email or phone number.",
-      });
-    }
-  };
-//   handle get otp s
+  }
+  //   handle get otp s
   const handleCreateNewPassword = (e) => {
     e.preventDefault();
     const otp1 = e.target.otp1.value;
@@ -93,6 +96,7 @@ export default function ResetForm() {
           <InputField
             placeholder="Enter your email or phone number"
             name="email"
+            error={error ? true : false}
           />
         );
       case "otp":
@@ -121,7 +125,7 @@ export default function ResetForm() {
                 field: "email",
                 resetPageTitle: "Forgot Password",
                 resetPageDescription:
-                  "Enter your email address to reset your password. You’ll receive a link to create a new one.",
+                  "Enter your email address to reset your password. You’ll receive a otp create a new one.",
               });
             } else if (resetState.field === "newpassword") {
               setResetState({
