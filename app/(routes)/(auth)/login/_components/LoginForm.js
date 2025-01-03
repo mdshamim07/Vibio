@@ -41,7 +41,7 @@ export default function LoginForm({ children }) {
           label="Email adress"
           placeholder="Email address"
           type="email"
-          error={false}
+          error={error ? true : false}
           name="email"
           isDisabled={loading ? true : false}
         />
@@ -52,7 +52,8 @@ export default function LoginForm({ children }) {
           label="Password"
           placeholder="Password"
           type="password"
-          error={false}
+          mode="password"
+          error={error ? true : false}
           name="password"
           isDisabled={loading ? true : false}
         />

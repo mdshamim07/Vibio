@@ -11,11 +11,12 @@ export const inputs = [
   { id: 5, type: "number", name: "otp6" },
 ];
 
-export default function VerifyInputs() {
+export default function VerifyInputs({ error, setError, loading }) {
   const elementRef = useRef([]);
   const [otpValue, setOtpValue] = useState("");
 
   function handleOtpChange(event, index) {
+    setError(null);
     const updatedOtp = [...otpValue];
     updatedOtp[index] = event.target.value;
     setOtpValue(updatedOtp.join(""));
@@ -45,7 +46,9 @@ export default function VerifyInputs() {
             type={input?.type}
             ref={(el) => (elementRef.current[index] = el)}
             maxLength={1}
-            className="w-12 h-12 text-center text-lg border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+            className={`w-12 h-12 text-center text-lg border  rounded-md focus:outline-none focus:ring-2 focus:ring-primary ${
+              loading ? "opacity-50" : "opacity-100"
+            } ${error ? "border-red-600" : "border-gray-300"}`}
           />
         ))}
       </div>

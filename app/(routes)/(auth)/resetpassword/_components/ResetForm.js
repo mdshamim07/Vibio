@@ -5,6 +5,10 @@ import { useState } from "react";
 import VerifyInputs from "../../verify/_components/VerifyInputs";
 import CommonErrorMessage from "../../_components/CommonErrorMessage";
 import sendResetLinkAction from "@/actions/sendResetLinkAction";
+import LoadingLine from "@/app/components/LoadingLine";
+import getFormData from "@/utils/getFormData";
+import { updatePassword, verifyResetFormOtp } from "@/actions";
+import { useRouter } from "next/navigation";
 
 export default function ResetForm() {
   const [resetState, setResetState] = useState({
@@ -13,100 +17,116 @@ export default function ResetForm() {
       "Enter your email address to reset your password. You’ll receive a link to create a new one.",
     field: "email",
   });
+  const router = useRouter();
+  const [email, setEmail] = useState("");
   const [error, setError] = useState(null);
-  async function handleGetOtp(e) {
-    e.preventDefault();
+  const [loading, setLoading] = useState(false);
 
-    const emailField = e.target.email?.value;
-    if (!emailField) {
-      setError("Email is required!");
-    } else {
-      const response = await sendResetLinkAction(emailField.trim());
-      console.log(response);
+  // handler for send otp
+  async function handleGetOtp(e) {
+    setLoading(true);
+    e.preventDefault();
+    setError(null);
+    try {
+      const emailField = e.target.email?.value;
+      if (!emailField) {
+        setError("Email is required!");
+      } else {
+        const response = await sendResetLinkAction(emailField.trim());
+        setEmail(emailField.trim());
+        if (response.ok) {
+          setResetState({
+            ...resetState,
+            field: "otp",
+            resetPageTitle: "Verify Your OTP",
+            resetPageDescription:
+              "Enter the 6-digit code we sent to your email or phone number.",
+          });
+        } else {
+          setError(response.message);
+        }
+      }
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  }
+  //   handle get otp s
+  async function handleVerifyOtp(e) {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+    try {
+      const otp = getFormData(e);
+      const response = await verifyResetFormOtp(email, otp?.otpField);
       if (response.ok) {
         setResetState({
           ...resetState,
-          field: "otp",
-          resetPageTitle: "Verify Your OTP",
+          field: "newpassword",
+          resetPageTitle: "Create New Password",
           resetPageDescription:
-            "Enter the 6-digit code we sent to your email or phone number.",
+            "Enter a new password to regain access to your account.",
         });
       } else {
-        setError(response.message);
+        setError(response?.message);
       }
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  }
+  // handle change password
+  async function handleChangePassword(e) {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+    try {
+      const passwordField = e.target.password?.value;
+      if (passwordField.length < 6) {
+        setError("Password field must be 6 character!");
+      } else {
+        const response = await updatePassword(email, passwordField.trim());
+        if (response.ok) {
+          router.push("/");
+        } else {
+          setError(response?.message);
+        }
+      }
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
     }
 
     // Mock API response
   }
-  //   handle get otp s
-  const handleCreateNewPassword = (e) => {
-    e.preventDefault();
-    const otp1 = e.target.otp1.value;
-    const otp2 = e.target.otp2.value;
-    const otp3 = e.target.otp3.value;
-    const otp4 = e.target.otp4.value;
-    const otp5 = e.target.otp5.value;
-    const otp6 = e.target.otp6.value;
-    const otp = `${otp1}${otp2}${otp3}${otp4}${otp5}${otp6}`;
-    // Mock API response
-    const response = { ok: false, message: "Enter Your Six character otp" };
-
-    if (response.ok) {
-      setResetState({
-        ...resetState,
-        field: "newpassword",
-        resetPageTitle: "Create New Password",
-        resetPageDescription:
-          "Enter a new password to regain access to your account.",
-      });
-    } else {
-      setError(response?.message);
-    }
-  };
-  // handle change password
-  const handleChangePassword = (e) => {
-    e.preventDefault();
-
-    const passwordField = e.target.password?.value;
-    if (!passwordField || passwordField.length < 8) {
-      alert("Password must be at least 8 characters long.");
-      return;
-    }
-
-    // Mock API response
-    const response = { ok: true };
-
-    if (response.ok) {
-      alert("Your password has been successfully changed.");
-      setResetState({
-        resetPageTitle: "Forgot Password",
-        resetPageDescription:
-          "Enter your email address to reset your password. You’ll receive a link to create a new one.",
-        field: "email",
-      });
-    } else {
-      setError(response?.message);
-    }
-  };
 
   const renderFormContent = () => {
     switch (resetState.field) {
       case "email":
         return (
           <InputField
-            placeholder="Enter your email or phone number"
+            isDisabled={loading ? true : false}
+            customClass={`${loading ? "opacity-50" : "opacity-100"}`}
+            placeholder="Enter your email address"
             name="email"
             error={error ? true : false}
           />
         );
       case "otp":
-        return <VerifyInputs />;
+        return (
+          <VerifyInputs loading={loading} error={error} setError={setError} />
+        );
       case "newpassword":
         return (
           <InputField
             placeholder="Enter your new password"
             name="password"
             type="password"
+            mode="password"
+            customClass={`${loading ? "opacity-50" : "opacity-100"}`}
           />
         );
       default:
@@ -163,19 +183,19 @@ export default function ResetForm() {
       <p className="text-center text-gray-600 mb-6">
         {resetState.resetPageDescription}
       </p>
-
+      {loading && <LoadingLine />}
       <form
         onSubmit={
           resetState.field === "email"
             ? handleGetOtp
             : resetState.field === "otp"
-            ? handleCreateNewPassword
+            ? handleVerifyOtp
             : handleChangePassword
         }
       >
         <div className="mb-4">{renderFormContent()}</div>
         {error && <CommonErrorMessage>{error}</CommonErrorMessage>}
-        <Button>
+        <Button loading={loading}>
           {resetState.field === "email"
             ? "Send Reset OTP"
             : resetState.field === "otp"

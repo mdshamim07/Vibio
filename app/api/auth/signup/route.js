@@ -57,7 +57,7 @@ export async function POST(request) {
         {
           email: email.trim(),
           otp: createUser?.otp,
-          name: firstName + lastName,
+          name: firstName + " " + lastName,
         }
       );
       if (otpResponse.ok) {
