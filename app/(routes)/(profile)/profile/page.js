@@ -1,5 +1,6 @@
 import { getUser } from "@/actions";
 import AboutSection from "../_components/AboutSection";
+import CreatePostButton from "./_components/CreatePostButton";
 
 export default async function page() {
   const user = await getUser();
@@ -9,9 +10,7 @@ export default async function page() {
       {/* Left Column: About and Friends */}
       <div className="w-full lg:w-1/3">
         {/* About Section */}
-        <AboutSection
-          bio={user?.about?.bio}
-        >
+        <AboutSection bio={user?.about?.bio}>
           <ul className="mt-4">
             {user?.about?.work.length > 0 && (
               <li className="text-gray-600 mt-2 flex items-center gap-2">
@@ -142,7 +141,7 @@ export default async function page() {
         {/* Example Post */}
         <div className="bg-white rounded-lg shadow-md p-4 mb-2 flex justify-center items-center flex-col">
           <p className="text-sm text-gray-600">No Post Found</p>
-          <button className="btn mt-2">Create New Post</button>
+          <CreatePostButton />
         </div>
         <div className="bg-white rounded-lg shadow-md p-4">
           <div className="flex items-center gap-4 mb-2">

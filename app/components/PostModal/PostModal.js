@@ -69,7 +69,7 @@ export default function PostModal() {
         </div>
         {/* Modal Footer */}
         <div className="border-t p-4 bg-white sticky bottom-0 flex justify-end">
-          <button className="bg-primary text-white px-4 py-2 rounded-md hover:bg-blue-700">
+          <button className="bg-primary text-white px-4 py-2 rounded-md hover:bg-hover">
             Post
           </button>
         </div>
