@@ -9,7 +9,7 @@ export default function ProfilePicture({ avatar }) {
   const [preview, setPreview] = useState(avatar || profilePic);
 
   const handleImageChange = async (event) => {
-    console.log("hello");
+   
   };
 
   return (

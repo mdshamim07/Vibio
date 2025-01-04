@@ -1,6 +1,14 @@
 import mongoose, { Schema } from "mongoose";
 
 const requestListSchema = new mongoose.Schema({
+  requestedUserId: {
+    type: Schema.Types.ObjectId,
+    required: true,
+  },
+  senderId: {
+    type: Schema.Types.ObjectId,
+    required: true,
+  },
   user: {
     type: Schema.Types.ObjectId,
     required: true,
@@ -8,4 +16,4 @@ const requestListSchema = new mongoose.Schema({
 });
 
 export const RequestListModel =
-  mongoose.models.users ?? mongoose.model("requests", requestListSchema);
+  mongoose.models.requests ?? mongoose.model("requests", requestListSchema);

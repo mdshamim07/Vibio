@@ -7,7 +7,7 @@ export default async function loginAction(formData) {
   const cookieStore = await cookies();
   try {
     const response = await loginQuery(formData);
-    console.log(response);
+  
     if (response.ok) {
       cookieStore.set("user", response?.data?.id);
 
