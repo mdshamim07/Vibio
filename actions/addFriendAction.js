@@ -5,6 +5,7 @@ import { RequestListModel } from "@/models/RequestListModel";
 import { getUser } from ".";
 import { revalidatePath } from "next/cache";
 import formateMongo from "@/app/api/helpers/formateMongo";
+import { FriendListModel } from "@/models/FriendListModal";
 
 export async function addFriendAction(requestedUserId) {
   try {
@@ -86,6 +87,43 @@ export async function getFriendRequestionAction() {
     return {
       error: true,
       message: error.message,
+    };
+  }
+}
+export async function acceptReqAction(userId, id) {
+  try {
+    await dbConnect();
+    const newFriend = {
+      user: userId,
+    };
+    const response = await FriendListModel.create(newFriend);
+    if (response) {
+      const deleteReq = await RequestListModel.deleteOne({
+        _id: id,
+      });
+
+      if (deleteReq?.deletedCount > 0) {
+        revalidatePath("/");
+        return {
+          ok: true,
+        };
+      } else {
+        return {
+          ok: false,
+          message: "something went wrong!",
+        };
+      }
+    } else {
+      return {
+        ok: false,
+        message: "something went wrong!",
+      };
+    }
+  } catch (err) {
+    return {
+      ok: false,
+      message: err.message,
+      error: true,
     };
   }
 }

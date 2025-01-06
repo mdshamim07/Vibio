@@ -10,6 +10,7 @@ export default async function FriendSuggestionItem({
   id,
   friend,
   mode,
+  userId,
 }) {
   const isFriend = await isAlreadyFriend(id);
   const user = mode === "request-item" && (await getUserById(friend?.senderId));
@@ -33,6 +34,7 @@ export default async function FriendSuggestionItem({
         mode={mode}
         isFriend={mode !== "request-item" && isFriend?.isFriend}
         id={id}
+        user={userId}
       />
     </div>
   );

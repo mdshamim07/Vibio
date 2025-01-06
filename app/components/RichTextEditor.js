@@ -12,6 +12,7 @@ export default function RichTextEditor() {
     if (editorRef.current) {
       setMedia({
         ...media,
+        storyRichText: editorRef.current.innerHTML,
         richTextContent: editorRef.current.innerHTML,
       }); // Update the state with the editor's content
     }
@@ -21,6 +22,7 @@ export default function RichTextEditor() {
       {/* Toolbar */}
       <div className="flex items-center gap-2 bg-gray-100 p-2 border-b">
         <button
+          type="button"
           onClick={() => handleCommand("bold")}
           className="p-2 hover:bg-gray-200 rounded"
           title="Bold"
@@ -28,6 +30,7 @@ export default function RichTextEditor() {
           <strong>B</strong>
         </button>
         <button
+          type="button"
           onClick={() => handleCommand("italic")}
           className="p-2 hover:bg-gray-200 rounded"
           title="Italic"
@@ -35,6 +38,7 @@ export default function RichTextEditor() {
           <em>I</em>
         </button>
         <button
+          type="button"
           onClick={() => handleCommand("underline")}
           className="p-2 hover:bg-gray-200 rounded"
           title="Underline"
@@ -42,25 +46,12 @@ export default function RichTextEditor() {
           <u>U</u>
         </button>
         <button
+          type="button"
           onClick={() => handleCommand("strikeThrough")}
           className="p-2 hover:bg-gray-200 rounded"
           title="Strikethrough"
         >
           <strike>S</strike>
-        </button>
-        <button
-          onClick={() => handleCommand("insertUnorderedList")}
-          className="p-2 hover:bg-gray-200 rounded"
-          title="Bullet List"
-        >
-          •
-        </button>
-        <button
-          onClick={() => handleCommand("insertOrderedList")}
-          className="p-2 hover:bg-gray-200 rounded"
-          title="Numbered List"
-        >
-          1.
         </button>
       </div>
 

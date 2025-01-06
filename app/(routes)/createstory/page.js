@@ -1,10 +1,14 @@
 import CreateStoryContent from "./_components/CreateStoryContent";
+import StoryUser from "./_components/StoryUser";
 
 export default function page() {
   return (
-    <div className="flex flex-col lg:flex-row gap-2 w-full mt-2 h-[80%] bg-secondaryBg rounded-lg shadow-lg overflow-hidden">
+    <div>
       {/* Left Panel */}
-      <CreateStoryContent />
+
+      <CreateStoryContent>
+        <StoryUser />
+      </CreateStoryContent>
     </div>
   );
 }

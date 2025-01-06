@@ -21,7 +21,7 @@ export default function PhotoStoryCard() {
       <div className="bg-white w-12 h-12 rounded-full flex items-center justify-center mb-4">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6 text-blue-500"
+          className="h-6 w-6 text-purple-500"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -30,13 +30,13 @@ export default function PhotoStoryCard() {
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
-            d="M3 5h18M3 5a2 2 0 012-2h14a2 2 0 012 2M3 5v14a2 2 0 002 2h14a2 2 0 002-2V5M9 14l2-2m0 0l2 2m-2-2v6"
+            d="M16 9V7a4 4 0 10-8 0v2m4 11v-4m-4-4h8"
           />
         </svg>
       </div>
       {/* Text */}
       <p className="text-white font-semibold text-center">
-        Create a Photo Story
+        Create a Text Story
       </p>
     </div>
   );

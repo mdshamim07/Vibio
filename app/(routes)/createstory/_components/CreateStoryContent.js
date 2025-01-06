@@ -1,9 +1,13 @@
 "use client";
 
+import { createNewStoryAction } from "@/actions/storyAction";
 import RichTextEditor from "@/app/components/RichTextEditor";
 import useMedia from "@/app/hooks/useMedia";
+import getFormData from "@/utils/getFormData";
 import Link from "next/link";
 import { useState } from "react";
+import CommonErrorMessage from "../../(auth)/_components/CommonErrorMessage";
+import { useRouter } from "next/navigation";
 export const storyColors = [
   {
     id: 1,
@@ -26,35 +30,42 @@ export const storyColors = [
     color: "#07beb8",
   },
 ];
-export default function CreateStoryContent() {
+export default function CreateStoryContent({ children }) {
   const [story, setStory] = useState({
     storyText: "",
-    color: storyColors[4]?.color,
+    color: storyColors[3]?.color,
   });
+  const [error, setError] = useState(null);
   const { media } = useMedia();
+  const router = useRouter();
+  async function handleCreateStory(e) {
+    e.preventDefault();
+    try {
+      const formData = getFormData(e);
+      const newStoryContent = {
+        ...formData,
+        htmlContent: media?.storyRichText,
+        background: story?.color,
+      };
 
+      const response = await createNewStoryAction(newStoryContent);
+      if (response.ok) {
+        router.push(`/story/${response?.id}`);
+      }
+    } catch (err) {
+      setError(err.message);
+    }
+  }
   return (
-    <>
+    <form
+      className="flex flex-col lg:flex-row gap-2 w-full mt-2 h-[80%] bg-secondaryBg rounded-lg shadow-lg overflow-hidden"
+      onSubmit={handleCreateStory}
+    >
+      {error && <CommonErrorMessage>{error}</CommonErrorMessage>}
       {/* left panel  */}
       <div className="w-full lg:w-1/3 bg-white p-6 flex flex-col">
         {/* Profile and Title */}
-        <div className="flex items-center gap-4 mb-4">
-          <div className="w-[50px] h-[50px]">
-            <img
-              className="w-full h-full rounded-full object-cover"
-              src="https://pics.craiyon.com/2023-11-26/oMNPpACzTtO5OVERUZwh3Q.webp"
-              alt="User Profile"
-            />
-          </div>
-          <div className="flex flex-col">
-            <span className="font-medium">Md Shamim</span>
-            <select className="text-left">
-              <option value="public">Public</option>
-              <option value="private">Private</option>
-              <option value="friends">Friends</option>
-            </select>
-          </div>
-        </div>
+        {children}
         {/* Text Input */}
         <RichTextEditor />
         {/* Background Options */}
@@ -63,6 +74,7 @@ export default function CreateStoryContent() {
           <div className="flex space-x-2">
             {storyColors.map((storyColor) => (
               <button
+                type="button"
                 onClick={() =>
                   setStory({
                     ...story,
@@ -95,7 +107,7 @@ export default function CreateStoryContent() {
         </div>
       </div>
       {/* right panel  */}
-      <div className="w-full relative lg:w-2/3 bg-boxColor flex items-center justify-center">
+      <div className="w-full  relative lg:w-2/3 bg-boxColor flex items-center justify-center">
         <p className="text-center top-2 text-white absolute lg:left-2 lg:top-2">
           Live Preview
         </p>
@@ -103,7 +115,7 @@ export default function CreateStoryContent() {
           style={{
             backgroundColor: story?.color,
           }}
-          className="w-72 h-[500px] bg-gradient-to-b  rounded-lg flex items-center justify-center"
+          className="w-72 px-4 h-[500px] bg-gradient-to-b  rounded-lg flex items-center justify-center"
         >
           <p
             id="live-preview"
@@ -117,6 +129,6 @@ export default function CreateStoryContent() {
           ></p>
         </div>
       </div>
-    </>
+    </form>
   );
 }
