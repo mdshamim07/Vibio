@@ -1,7 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import useMedia from "../hooks/useMedia";
-
+import profilePic from "@/assets/avatar/avatar.png";
 export default function NavProfilePic({ avatar, firstName }) {
   const { media, setMedia } = useMedia();
   return (
@@ -15,10 +16,12 @@ export default function NavProfilePic({ avatar, firstName }) {
       className="select-none nav-img bg-secondaryBg flex justify-center rounded-full items-center text-xl font-medium w-[40px] h-[40px] cursor-pointer"
     >
       {avatar.length > 0 ? (
-        <img
-          className="w-full h-full rounded-full nav-img"
-          src="https://images.pexels.com/photos/29664446/pexels-photo-29664446/free-photo-of-scenic-aerial-view-of-madeira-village.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          alt=""
+        <Image
+          width={40}
+          height={40}
+          className="w-full h-full rounded-full nav-img object-cover"
+          src={avatar ? avatar : profilePic}
+          alt="profile-pic"
         />
       ) : (
         <h2>{firstName.charAt(0).toUpperCase()}</h2>

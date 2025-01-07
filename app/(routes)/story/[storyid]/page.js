@@ -1,13 +1,13 @@
-import StoryNextButton from "./_components/StoryNextButton";
-import StoryPreviousButton from "./_components/StoryPreviousButton";
 import StoryViewItem from "./_components/StoryViewItem";
 
-export default function page() {
+export default async function page({ params }) {
+  const param = await params;
+
   return (
     <>
-      <StoryPreviousButton />
-      <StoryViewItem />
-      <StoryNextButton />
+      {/* <StoryPreviousButton /> */}
+      <StoryViewItem param={param} />
+      {/* <StoryNextButton /> */}
     </>
   );
 }

@@ -7,7 +7,6 @@ import { getUser } from "@/actions";
 
 export default async function Navbar() {
   const user = await getUser();
-
   return (
     <div className="shadow-md bg-white">
       <div className="container py-2 mx-auto flex justify-between items-center">

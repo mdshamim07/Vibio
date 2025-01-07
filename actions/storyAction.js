@@ -7,12 +7,14 @@ import { StoryModel } from "@/models/StoryModel";
 export async function createNewStoryAction(data) {
   await dbConnect();
   try {
-    const respnse = StoryModel.create(data);
-    // const formatedObj = formateMongo(respnse);
+    const respnse = await StoryModel.create(data);
+
+    const formatedObj = formateMongo(respnse);
     if (respnse) {
       return {
         ok: true,
         message: "Story created!",
+        id: formatedObj?._id,
       };
     }
   } catch (err) {

@@ -1,12 +1,16 @@
-export default function StoryContent() {
+import getStoryItem from "@/queries/getStoryItem";
+
+export default async function StoryContent({ param }) {
+  const story = await getStoryItem(param?.storyid);
   return (
     <div className="w-full flex justify-center items-center">
-      <div className="w-[90%] rounded-sm sm:w-[400px] h-[80vh]">
-        <img
-          className="w-full h-full rounded-sm"
-          src="https://images.pexels.com/photos/29894015/pexels-photo-29894015/free-photo-of-festive-decor-on-classic-red-car-for-holidays.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          alt=""
-        />
+      <div className="w-[90%] rounded-sm sm:w-[400px] h-[80vh] ">
+        <div
+          className={` text-white flex justify-center items-center w-full h-full`}
+          style={{ backgroundColor: story?.background }}
+        >
+          <div dangerouslySetInnerHTML={{ __html: story?.htmlContent }} />
+        </div>
       </div>
     </div>
   );

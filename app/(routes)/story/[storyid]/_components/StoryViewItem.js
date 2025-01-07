@@ -1,11 +1,11 @@
 import StoryContent from "./StoryContent";
 import StoryTimeLine from "./StoryTimeLine";
 const stories = ["", "", "", "", ""];
-export default function StoryViewItem() {
+export default function StoryViewItem({ param }) {
   return (
     <>
       <StoryTimeLine />
-      <StoryContent />
+      <StoryContent param={param} />
     </>
   );
 }
