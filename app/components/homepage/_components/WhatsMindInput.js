@@ -1,8 +1,9 @@
 "use client";
 
 import useMedia from "@/app/hooks/useMedia";
-
-export default function WhatsMindInput() {
+import Image from "next/image";
+import profilePic from "@/assets/avatar/avatar.png";
+export default function WhatsMindInput({ avatar }) {
   const { media, setMedia } = useMedia();
   return (
     <div
@@ -18,9 +19,11 @@ export default function WhatsMindInput() {
       }
       className="justify-center flex gap-2 mt-4 shadow-xl mb-2 py-2 px-2 border"
     >
-      <img
+      <Image
+        width={40}
+        height={40}
         className="w-[40px] h-[40px] rounded-full object-cover"
-        src="https://pics.craiyon.com/2023-11-26/oMNPpACzTtO5OVERUZwh3Q.webp"
+        src={avatar ? avatar : profilePic}
         alt=""
       />
       <input

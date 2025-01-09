@@ -7,15 +7,22 @@ import PostImages from "./PostImages";
 import PostText from "./PostText";
 import PostThreeDots from "./PostThreeDots";
 
-export default function PostItem({ mode }) {
+export default function PostItem({
+  mode,
+  user,
+  time,
+  htmlContent,
+  images,
+  audience,
+}) {
   return (
     <div className="shadow-xl bg-boxColor relative p-2 mt-2 border post-item">
       <PostThreeDots />
-      <PostAuthor />
-      <PostText />
+      <PostAuthor audience={audience} time={time} user={user} />
+      {htmlContent && <PostText htmlContent={htmlContent} />}
 
-      {mode == "video" ? <VideoPlayer /> : <PostImages />}
-      <hr className="mt-2" />
+      {mode == "video" ? <VideoPlayer /> : images.length > 0 && <PostImages />}
+      <hr className="mt-2 mb-2" />
       <PostActions />
       {/* comment hidden  */}
       <CommentContainer>

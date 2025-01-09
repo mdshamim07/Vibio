@@ -14,7 +14,8 @@ export default function MediaProvider({ children }) {
     storyModal: false,
     richTextContent: "",
     navContent: false,
-    storyRichText: ""
+    storyRichText: "",
+    postModalContent : ""
   });
 
   return (

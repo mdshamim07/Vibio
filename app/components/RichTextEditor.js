@@ -14,6 +14,7 @@ export default function RichTextEditor() {
         ...media,
         storyRichText: editorRef.current.innerHTML,
         richTextContent: editorRef.current.innerHTML,
+        postModalContent: editorRef.current.innerHTML,
       }); // Update the state with the editor's content
     }
   };

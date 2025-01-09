@@ -1,10 +1,5 @@
-export default function PostText() {
+export default function PostText({ htmlContent }) {
   return (
-    <div className="mb-2">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eligendi
-      aspernatur hic rem aliquam, cupiditate velit, quae distinctio fugiat,
-      deleniti tempore voluptatibus? Tempora eius, aut perferendis facere nam
-      rem aliquid.
-    </div>
+    <div className="mb-2" dangerouslySetInnerHTML={{ __html: htmlContent }} />
   );
 }
