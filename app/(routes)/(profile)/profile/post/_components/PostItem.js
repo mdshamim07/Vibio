@@ -15,17 +15,22 @@ export default function PostItem({
   htmlContent,
   images,
   audience,
+  postUser,
   postId,
 }) {
   return (
     <div className="shadow-xl bg-boxColor relative p-2 mt-2 border post-item">
       <PostThreeDots />
-      <PostAuthor audience={audience} time={time} user={user} />
+      <PostAuthor audience={audience} time={time} user={postUser} />
       {htmlContent && <PostText htmlContent={htmlContent} />}
 
-      {mode == "video" ? <VideoPlayer /> : images.length > 0 && <PostImages />}
+      {mode == "video" ? (
+        <VideoPlayer />
+      ) : (
+        images.length > 0 && <PostImages images={images} />
+      )}
       <hr className="mt-2 mb-2" />
-      <PostActions />
+      <PostActions postId={postId} />
       {/* comment hidden  */}
       <CommentContainer postId={postId}>
         <Image
@@ -35,15 +40,9 @@ export default function PostItem({
           src={user?.avatar ? user?.avatar : profilePic}
           alt="profile pic"
         />
-        <input
-          type="text"
-          name="title"
-          placeholder="Write a comment..."
-          className="bg-bgColor py-2 px-2 rounded-sm focus:border-black w-[70%] border outline-none"
-        />
       </CommentContainer>
       {/* comments  */}
-      <Comments />
+      <Comments postId={postId} />
     </div>
   );
 }

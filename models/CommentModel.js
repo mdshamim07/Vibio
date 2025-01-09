@@ -12,6 +12,10 @@ const commentSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+  postId: {
+    type: Schema.Types.ObjectId,
+    required: true,
+  },
 });
 
 export const CommentModel =

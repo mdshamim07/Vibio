@@ -19,7 +19,7 @@ export default async function Navbar() {
             <>
               <NavActions />
               <NavProfilePic
-                avatar={user ? user?.avatar : "No Avatar"}
+                avatar={user?.avatar}
                 firstName={user ? user?.firstName : "No Name"}
               />
             </>

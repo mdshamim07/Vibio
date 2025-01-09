@@ -5,6 +5,12 @@ import { revalidatePath } from "next/cache";
 import { dbConnect } from "@/connection/dbConnect";
 
 export async function addComment(comment, postId) {
+  if (comment?.title.length === 0) {
+    return {
+      ok: false,
+      message: "Write your comment please",
+    };
+  }
   try {
     await dbConnect();
     const user = await getUser();

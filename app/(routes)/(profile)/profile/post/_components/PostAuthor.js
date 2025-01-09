@@ -3,6 +3,7 @@ import ThreeDots from "./ThreeDots";
 import profilePic from "@/assets/avatar/avatar.png";
 import formateTime from "@/utils/formateTime";
 export default function PostAuthor({ user, time, audience }) {
+  console.log(user);
   let audi;
   if (audience === "public") {
     audi = (
@@ -74,7 +75,9 @@ export default function PostAuthor({ user, time, audience }) {
           alt="Profile pic"
         />
         <div>
-          <p>Md Shamim Mia</p>
+          <p>
+            {user?.firstName} {user?.lastName}
+          </p>
           <div className="flex items-center gap-2">
             <span className="text-sm text-gray-500">{formateTime(time)}</span>
             {audi}

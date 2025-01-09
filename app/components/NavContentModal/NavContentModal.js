@@ -8,7 +8,7 @@ export default async function NavContentModal() {
     <div className="nav-actions z-50 bg-white shadow-xl w-[300px] p-6 right-2 fixed top-[70px]">
       <ul>
         <ProfileAction
-          avatar={user ? user?.avatar : "No Avatar"}
+          avatar={user?.avatar}
           firstName={user ? user?.firstName : "No"}
           lastName={user ? user?.lastName : "Name"}
         />

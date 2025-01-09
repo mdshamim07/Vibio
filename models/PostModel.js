@@ -1,6 +1,10 @@
 import mongoose, { Schema } from "mongoose";
-
-const postSchema = new mongoose.Schema({
+const likeSchema = new Schema({
+  user: {
+    type: Schema.Types.ObjectId,
+  },
+});
+const postSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
     requried: true,
@@ -25,9 +29,9 @@ const postSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-  postId: {
-    type: String,
-    required: true,
+  likes: {
+    type: [likeSchema],
+    requried: false,
   },
 });
 

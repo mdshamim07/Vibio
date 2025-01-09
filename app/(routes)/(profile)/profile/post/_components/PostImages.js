@@ -1,10 +1,14 @@
-export default function PostImages() {
+import Image from "next/image";
+
+export default function PostImages({ images }) {
   return (
     <div>
-      <img
+      <Image
+        width={1260}
+        height={750}
         className="w-full"
-        src="https://images.pexels.com/photos/27571425/pexels-photo-27571425/free-photo-of-a-bridge-over-a-street-with-buildings-on-both-sides.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-        alt=""
+        src={images[0]}
+        alt="post-image"
       />
     </div>
   );

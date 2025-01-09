@@ -10,6 +10,7 @@ export default function CommentContainer({ children, postId }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const { media } = useMedia();
+  const [comment, setComment] = useState("");
   async function handleAddComment(e) {
     e.preventDefault();
     setLoading(true);
@@ -17,6 +18,8 @@ export default function CommentContainer({ children, postId }) {
       const formData = getFormData(e);
       const response = await addComment(formData, postId);
       if (response.ok) {
+        setError(null);
+        setComment("");
       } else {
         setError(response.message);
       }
@@ -32,17 +35,36 @@ export default function CommentContainer({ children, postId }) {
       className={`justify-between transition-all duration-150 flex gap-1 ${
         media?.commentSection
           ? "mt-4 visible opacity-100"
-          : "opacity-0 invisible mt-[-20px]"
+          : "opacity-0 invisible mt-[-40px]"
       }`}
     >
       {error && <CommonErrorMessage>{error}</CommonErrorMessage>}
       {children}
-      <button
-        className={`btn w-[20%] ${
-          loading ? "disabled:opacity-50" : "hover:bg-hover"
-        }`}
+      <input
+        onChange={(e) => setComment(e.target.value)}
+        type="text"
+        value={comment}
+        name="title"
+        placeholder="Write a comment..."
         disabled={loading}
+        className={`bg-bgColor ${
+          loading ? "opacity-50" : "opacity-100"
+        } py-2 px-2 rounded-sm focus:border-black w-[70%] border outline-none`}
+      />
+      <button
+        className={`btn flex justify-center items-center gap-1 w-[20%] ${
+          loading || comment.length === 0
+            ? "disabled:opacity-50"
+            : "hover:bg-hover"
+        }`}
+        disabled={loading || comment?.length === 0}
       >
+        {loading && (
+          <div
+            className="w-[15px] h-[15px] border-2 border-white border-t-transparent rounded-full animate-spin"
+            aria-label="Loading"
+          ></div>
+        )}
         {loading ? "Adding..." : "Comment"}
       </button>
     </form>
