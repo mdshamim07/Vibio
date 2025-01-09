@@ -25,9 +25,9 @@ const postSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-  comments: {
-    type: Array,
-    required: false,
+  postId: {
+    type: String,
+    required: true,
   },
 });
 
