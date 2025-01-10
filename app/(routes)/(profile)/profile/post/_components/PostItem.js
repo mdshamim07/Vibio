@@ -8,7 +8,8 @@ import PostText from "./PostText";
 import PostThreeDots from "./PostThreeDots";
 import Image from "next/image";
 import profilePic from "@/assets/avatar/avatar.png";
-export default function PostItem({
+import { getUser } from "@/actions";
+export default async function PostItem({
   mode,
   user,
   time,
@@ -18,10 +19,16 @@ export default function PostItem({
   postUser,
   postId,
 }) {
+  const loggedUser = await getUser();
   return (
     <div className="shadow-xl bg-boxColor relative p-2 mt-2 border post-item">
-      <PostThreeDots />
-      <PostAuthor audience={audience} time={time} user={postUser} />
+      {loggedUser?._id === postUser?._id && <PostThreeDots postId={postId} />}
+      <PostAuthor
+        isSameUser={loggedUser?._id === postUser?._id ? true : false}
+        audience={audience}
+        time={time}
+        user={postUser}
+      />
       {htmlContent && <PostText htmlContent={htmlContent} />}
 
       {mode == "video" ? (

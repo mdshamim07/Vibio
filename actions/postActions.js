@@ -117,3 +117,28 @@ export async function addNewLikeAction(postId) {
     };
   }
 }
+
+export async function deletePostAction(postid) {
+  try {
+    await dbConnect();
+    const response = await PostModel.deleteOne({ _id: postid });
+    if (response.deletedCount > 0) {
+      revalidatePath("/");
+      return {
+        ok: true,
+        message: "successfully deleted!",
+      };
+    } else {
+      return {
+        ok: false,
+        message: "something went wrong!",
+      };
+    }
+  } catch (err) {
+    return {
+      ok: false,
+      message: err.message,
+      error: true,
+    };
+  }
+}

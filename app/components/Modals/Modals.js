@@ -2,6 +2,7 @@ import ChatBoxModal from "../ChatBoxModal/ChatBoxModal";
 import ChatBoxModalContainer from "../ChatBoxModal/ChatBoxModalContainer";
 import ChatListModal from "../ChatListModal/ChatListModal";
 import ChatListModalContainer from "../ChatListModal/ChatListModalContainer";
+import ConfirmAlert from "../ConfirmationAlert/ConfirmAlert";
 import FriendListModal from "../FriendListModal/FriendListModal";
 import FriendListModalContainer from "../FriendListModal/FriendListModalContainer";
 import NavContentModal from "../NavContentModal/NavContentModal";
@@ -42,6 +43,15 @@ export default function Modals() {
       <ChatBoxModalContainer>
         <ChatBoxModal />
       </ChatBoxModalContainer>
+      <ConfirmAlert>
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-lg font-semibold text-gray-800">Are you sure?</h2>
+        </div>
+        <p className="text-gray-600 mb-4">
+          Are you sure you want to proceed with this action? This cannot be
+          undone.
+        </p>
+      </ConfirmAlert>
     </>
   );
 }

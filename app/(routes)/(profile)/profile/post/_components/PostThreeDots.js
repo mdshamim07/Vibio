@@ -2,14 +2,24 @@
 
 import useMedia from "@/app/hooks/useMedia";
 
-export default function PostThreeDots() {
+export default function PostThreeDots({ postId }) {
   const { media, setMedia } = useMedia();
+
   return (
     <>
       {media?.postThreeDot && (
         <div className="custom-shaddow bg-bgColor absolute right-2 top-12 py-2">
           <ul>
-            <li className="flex items-center gap-2 hover:bg-[#e0e0e0] cursor-pointer rounded-sm w-full px-2">
+            <li
+              onClick={() => {
+                setMedia({
+                  ...media,
+                  postId: postId,
+                  isAlert: true,
+                });
+              }}
+              className="flex select-none items-center gap-2 hover:bg-[#e0e0e0] cursor-pointer rounded-sm w-full px-2"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width={20}
