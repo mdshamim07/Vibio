@@ -13,6 +13,18 @@ export default async function page() {
         {/* Personal Information */}
         <div className="space-y-2">
           <AboutInpurField
+            placeHolder="Write your First name"
+            inputValue={user?.firstName}
+            title="First Name"
+            typeOfChanges="firstName"
+          />
+          <AboutInpurField
+            placeHolder="Write your Last name"
+            inputValue={user?.lastName}
+            title="Last Name"
+            typeOfChanges="lastName"
+          />
+          <AboutInpurField
             placeHolder="Write your work place"
             inputValue={user?.about?.work}
             title="Work Place "

@@ -1,12 +1,11 @@
-export const LOGIN = "/login";
-export const ROOT = "/";
-export const PUBLIC_ROUTES = [
-  "/login",
-  "/register",
-  "/goodbye",
-  "/shop",
-  "/tshirt",
-  "/contact",
-  "/checkout",
-  "/cart",
+export const PRIVATE_ROUTES = [
+  "/",
+  "/profile",
+  "/friends",
+  "/uploadavatar",
+  "/createstory",
+  "/feed",
+  "/friends",
+  "/story",
+  "/watchvideo",
 ];

@@ -2,14 +2,17 @@
 
 import { logOutAction } from "@/actions";
 import useMedia from "@/app/hooks/useMedia";
+import { useRouter } from "next/navigation";
 
 export default function LogOutButton() {
   const { media, setMedia } = useMedia();
+  const router = useRouter();
   async function handleLogOut() {
     setMedia({
       ...media,
       navContent: false,
     });
+    router.push("/login");
     await logOutAction();
   }
   return (

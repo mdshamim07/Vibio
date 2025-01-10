@@ -1,10 +1,14 @@
 import { getUser } from "@/actions";
 import AboutSection from "../_components/AboutSection";
 import CreatePostButton from "./_components/CreatePostButton";
-
+import Image from "next/image";
+import profilePic from "@/assets/avatar/avatar.png";
+import ProfilePostInput from "./_components/ProfilePostInput";
+import getPostById from "@/queries/getPostById";
+import PostItem from "./post/_components/PostItem";
 export default async function page() {
   const user = await getUser();
-
+  const posts = await getPostById(user?._id);
   return (
     <div className=" flex flex-col lg:flex-row gap-6 px-4 lg:px-16 py-6">
       {/* Left Column: About and Friends */}
@@ -123,47 +127,35 @@ export default async function page() {
       </div>
       {/* Right Column: Posts */}
       <div className="w-full lg:w-2/3">
-        <div className="bg-white rounded-lg shadow-md p-4 mb-4">
-          {/* Create Post */}
-          <div className="flex items-center gap-4">
-            <img
-              src="https://pics.craiyon.com/2023-11-26/oMNPpACzTtO5OVERUZwh3Q.webp"
-              alt="Profile Picture"
-              className="rounded-full w-12 h-12"
-            />
-            <input
-              type="text"
-              placeholder="What's on your mind, Shamim?"
-              className="w-full bg-gray-100 p-2 rounded-full focus:outline-none"
-            />
-          </div>
-        </div>
-        {/* Example Post */}
-        <div className="bg-white rounded-lg shadow-md p-4 mb-2 flex justify-center items-center flex-col">
-          <p className="text-sm text-gray-600">No Post Found</p>
-          <CreatePostButton />
-        </div>
-        <div className="bg-white rounded-lg shadow-md p-4">
-          <div className="flex items-center gap-4 mb-2">
-            <img
-              src="https://pics.craiyon.com/2023-11-26/oMNPpACzTtO5OVERUZwh3Q.webp"
-              alt="Profile Picture"
-              className="rounded-full w-12 h-12"
-            />
-            <div>
-              <h3 className="font-semibold">Md Shamim</h3>
-              <p className="text-sm text-gray-500">2 hours ago</p>
+        {posts.length === 0 ? (
+          <div className="bg-white rounded-lg shadow-md p-4 mb-4">
+            {/* Create Post */}
+            <div className="flex items-center gap-4">
+              <Image
+                width={48}
+                height={48}
+                src={user?.avatar ? user?.avatar : profilePic}
+                alt="Profile Picture"
+                className="rounded-full w-12 h-12 object-cover"
+              />
+              <ProfilePostInput firstName={user?.firstName} />
             </div>
           </div>
-          <p className="text-gray-700 mb-2">
-            Just finished building a responsive profile page with Tailwind CSS!
-          </p>
-          <img
-            src="https://pics.craiyon.com/2023-11-26/oMNPpACzTtO5OVERUZwh3Q.webp"
-            alt="Post Image"
-            className="rounded-lg w-full"
-          />
-        </div>
+        ) : (
+          posts.map((post) => (
+            <PostItem
+              postId={post?._id}
+              audience={post?.audience}
+              htmlContent={post?.htmlContent}
+              time={post?.createdAt}
+              postUser={post?.user}
+              user={user?.user}
+              images={post?.postImages}
+              key={post?._id}
+            />
+          ))
+        )}
+        {/* Example Post */}
       </div>
     </div>
   );

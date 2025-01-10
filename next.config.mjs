@@ -5,7 +5,7 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "i.ibb.co.com",
-        pathname: `/**/image.png`,
+        pathname: `/**/**`,
       },
     ],
   },

@@ -1,6 +1,8 @@
+import { getUser } from "@/actions";
 import AvatarPreview from "./_components/AvatarPreview";
 
-export default function page() {
+export default async function page() {
+  const user = await getUser();
   return (
     <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
       <h1 className="text-2xl font-bold text-center mb-4">
@@ -11,7 +13,7 @@ export default function page() {
       </p>
       <div className="flex flex-col items-center space-y-4">
         {/* Profile Photo Preview */}
-        <AvatarPreview />
+        <AvatarPreview avatar={user?.avatar} />
       </div>
     </div>
   );

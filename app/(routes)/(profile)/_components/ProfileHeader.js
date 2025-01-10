@@ -1,5 +1,6 @@
 import { getUser } from "@/actions";
 import ProfilePicture from "./ProfilePicture";
+import Link from "next/link";
 
 export default async function ProfileHeader() {
   const user = await getUser();
@@ -20,7 +21,9 @@ export default async function ProfileHeader() {
           <p className="text-gray-600">{user?.about?.bio}</p>
         )}
 
-        <button className="btn mt-2">Edit Your Profile</button>
+        <Link href="/profile/about" className="btn mt-2">
+          Edit Your Profile
+        </Link>
       </div>
     </div>
   );

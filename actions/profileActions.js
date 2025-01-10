@@ -15,25 +15,37 @@ export async function updateProfileInfo(typeOfChanges, value) {
       };
     } else {
       const user = await getUser();
-
-      const updateQuery = {
-        $set: { [`about.${typeOfChanges}`]: value },
-      };
-      const response = await UserModel.updateOne(
-        { email: user?.email },
-        updateQuery
-      );
-      if (response.modifiedCount > 0) {
+      if (typeOfChanges === "firstName" || typeOfChanges === "lastName") {
+        console.log(typeOfChanges);
+        const response = await UserModel.updateOne({
+          typeOfChanges: value,
+        });
+        console.log(response);
         revalidatePath("/");
         return {
           ok: true,
           message: "Successfully updated ",
         };
       } else {
-        return {
-          ok: false,
-          message: "something went wrong !",
+        const updateQuery = {
+          $set: { [`about.${typeOfChanges}`]: value },
         };
+        const response = await UserModel.updateOne(
+          { email: user?.email },
+          updateQuery
+        );
+        if (response.modifiedCount > 0) {
+          revalidatePath("/");
+          return {
+            ok: true,
+            message: "Successfully updated ",
+          };
+        } else {
+          return {
+            ok: false,
+            message: "something went wrong !",
+          };
+        }
       }
     }
   } catch (err) {

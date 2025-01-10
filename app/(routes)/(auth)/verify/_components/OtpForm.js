@@ -20,7 +20,7 @@ export default function OtpForm({ children, userId }) {
       const otpField = formData?.otpField;
       const response = await verifyOtp(userId, otpField);
       if (response.ok === "validuser" || response.ok) {
-        router.push("/");
+        router.push("/uploadavatar");
       }
 
       if (!response.ok) {

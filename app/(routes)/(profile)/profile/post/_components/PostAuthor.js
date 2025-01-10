@@ -9,6 +9,7 @@ export default function PostAuthor({
   isSameUser,
   postId,
 }) {
+
   let audi;
   if (audience === "public") {
     audi = (

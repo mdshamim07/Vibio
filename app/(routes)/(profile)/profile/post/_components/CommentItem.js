@@ -13,12 +13,14 @@ export default function CommentItem({ title, name, avatar, time }) {
       />
       <div className="flex-1">
         <div className="flex justify-between items-center">
-          <h2 className="text-base font-medium">{name}</h2>
+          <h2 className="text-base font-medium truncate">{name}</h2>
           <div>
             <p className="text-xs text-gray-500">{formateTime(time)}</p>
           </div>
         </div>
-        <p className="text-sm text-gray-700 mt-1">{title}</p>
+        <p className="text-sm text-gray-700 mt-1 truncate sm:whitespace-normal">
+          {title}
+        </p>
       </div>
     </div>
   );
