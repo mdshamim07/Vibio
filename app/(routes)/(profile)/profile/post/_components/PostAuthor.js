@@ -2,7 +2,13 @@ import Image from "next/image";
 import ThreeDots from "./ThreeDots";
 import profilePic from "@/assets/avatar/avatar.png";
 import formateTime from "@/utils/formateTime";
-export default function PostAuthor({ user, time, audience, isSameUser }) {
+export default function PostAuthor({
+  user,
+  time,
+  audience,
+  isSameUser,
+  postId,
+}) {
   let audi;
   if (audience === "public") {
     audi = (
@@ -83,7 +89,7 @@ export default function PostAuthor({ user, time, audience, isSameUser }) {
           </div>
         </div>
       </div>
-      {isSameUser && <ThreeDots />}
+      {isSameUser && <ThreeDots postId={postId} />}
     </div>
   );
 }

@@ -22,8 +22,8 @@ export default async function PostItem({
   const loggedUser = await getUser();
   return (
     <div className="shadow-xl bg-boxColor relative p-2 mt-2 border post-item">
-      {loggedUser?._id === postUser?._id && <PostThreeDots postId={postId} />}
       <PostAuthor
+        postId={postId}
         isSameUser={loggedUser?._id === postUser?._id ? true : false}
         audience={audience}
         time={time}

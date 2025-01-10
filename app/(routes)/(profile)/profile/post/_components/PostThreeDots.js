@@ -2,16 +2,17 @@
 
 import useMedia from "@/app/hooks/useMedia";
 
-export default function PostThreeDots({ postId }) {
+export default function PostThreeDots({ postId, isModal, setIsModal }) {
   const { media, setMedia } = useMedia();
 
   return (
     <>
-      {media?.postThreeDot && (
+      {isModal && (
         <div className="custom-shaddow bg-bgColor absolute right-2 top-12 py-2">
           <ul>
             <li
               onClick={() => {
+                setIsModal(!isModal);
                 setMedia({
                   ...media,
                   postId: postId,

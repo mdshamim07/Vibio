@@ -6,6 +6,7 @@ import formateMongo from "@/app/api/helpers/formateMongo";
 import { dbConnect } from "@/connection/dbConnect";
 import { UserModel } from "@/models/UserModel";
 import { revalidatePath } from "next/cache";
+import fetchData from "@/utils/fetchData";
 
 export async function createNewPost(postData) {
   await dbConnect();
@@ -139,6 +140,20 @@ export async function deletePostAction(postid) {
       ok: false,
       message: err.message,
       error: true,
+    };
+  }
+}
+export async function getPosts() {
+  try {
+    const response = await fetchData(
+      `${process.env.API_KEY}/${process.env.POSTS_API}`
+    );
+    return response;
+  } catch (err) {
+    return {
+      error: true,
+      message: err.message,
+      ok: false,
     };
   }
 }
