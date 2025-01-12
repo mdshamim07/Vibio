@@ -3,6 +3,7 @@
 import { addComment } from "@/actions/commentAction";
 import CommonErrorMessage from "@/app/(routes)/(auth)/_components/CommonErrorMessage";
 import useMedia from "@/app/hooks/useMedia";
+import { useCommentContext } from "@/app/providers/CommentProvider";
 import getFormData from "@/utils/getFormData";
 import { useState } from "react";
 
@@ -10,6 +11,7 @@ export default function CommentContainer({ children, postId }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const { media } = useMedia();
+  const { commentSection } = useCommentContext();
   const [comment, setComment] = useState("");
   async function handleAddComment(e) {
     e.preventDefault();
@@ -33,7 +35,7 @@ export default function CommentContainer({ children, postId }) {
     <form
       onSubmit={handleAddComment}
       className={`justify-between transition-all duration-150 flex gap-1 ${
-        media?.commentSection
+        commentSection[postId]
           ? "mt-4 visible opacity-100"
           : "opacity-0 invisible mt-[-40px]"
       }`}

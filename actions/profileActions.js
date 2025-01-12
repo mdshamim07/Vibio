@@ -15,12 +15,28 @@ export async function updateProfileInfo(typeOfChanges, value) {
       };
     } else {
       const user = await getUser();
-      if (typeOfChanges === "firstName" || typeOfChanges === "lastName") {
-        console.log(typeOfChanges);
-        const response = await UserModel.updateOne({
-          typeOfChanges: value,
-        });
-        console.log(response);
+
+      if (typeOfChanges === "firstName") {
+        const response = await UserModel.updateOne(
+          { _id: user?._id },
+          {
+            firstName: value,
+          }
+        );
+
+        revalidatePath("/");
+        return {
+          ok: true,
+          message: "Successfully updated ",
+        };
+      } else if (typeOfChanges === "lastName") {
+        const response = await UserModel.updateOne(
+          { _id: user?._id },
+          {
+            lastName: value,
+          }
+        );
+
         revalidatePath("/");
         return {
           ok: true,

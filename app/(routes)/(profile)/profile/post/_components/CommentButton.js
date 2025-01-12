@@ -1,17 +1,12 @@
 "use client";
 
-import useMedia from "@/app/hooks/useMedia";
+import { useCommentContext } from "@/app/providers/CommentProvider";
 
-export default function CommentButton({ comments }) {
-  const { media, setMedia } = useMedia();
+export default function CommentButton({ comments, postId }) {
+  const { toggleCommentSection } = useCommentContext();
   return (
     <button
-      onClick={() =>
-        setMedia({
-          ...media,
-          commentSection: !media?.commentSection,
-        })
-      }
+      onClick={() => toggleCommentSection(postId)}
       className="px-2 py-1 w-[120px] justify-center rounded-sm hover:bg-[#e0e0e0] cursor-pointer flex items-center gap-1"
     >
       <svg

@@ -4,6 +4,7 @@ import StoryItem from "./StoryItem";
 import Image from "next/image";
 import profilePic from "@/assets/avatar/avatar.png";
 import { getUser } from "@/actions";
+import StorySlider from "./StorySlider";
 export default async function Stories() {
   const stories = await getStories();
   const user = await getUser();
@@ -12,7 +13,7 @@ export default async function Stories() {
       <h2 className="text-xl font-medium">Stories</h2>
       <div className="flex">
         {/* Story Items Wrapper */}
-        <div className="flex gap-4 p-2 overflow-x-hidden">
+        <StorySlider>
           <NewStory>
             <Image
               width={1260}
@@ -85,7 +86,7 @@ export default async function Stories() {
                 </div>
               </StoryItem>
             ))}
-        </div>
+        </StorySlider>
       </div>
     </>
   );

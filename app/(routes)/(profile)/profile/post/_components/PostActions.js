@@ -11,7 +11,7 @@ export default async function PostActions({ postId }) {
   return (
     <div className="flex justify-between items-center">
       <LikeButton likeObject={likeObject} postId={postId} />
-      <CommentButton comments={comments.length} />
+      <CommentButton comments={comments.length} postId={postId} />
       <ShareButton />
     </div>
   );
