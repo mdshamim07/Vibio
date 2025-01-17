@@ -5,14 +5,25 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "i.ibb.co.com",
-        pathname: `/**/**`,
+        pathname: "/**",
       },
       {
         protocol: "https",
         hostname: "i.ibb.co",
-        pathname: "/**/**",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "localhost",
+        port: "3000",
+        pathname: "/uploads/**",
       },
     ],
+  },
+  experimental: {
+    serverActions: {
+      bodySizeLimit: "10mb",
+    },
   },
 };
 

@@ -11,7 +11,6 @@ import profilePic from "@/assets/avatar/avatar.png";
 import { getUser } from "@/actions";
 export default async function PostItem({
   mode,
-  user,
   time,
   htmlContent,
   images,

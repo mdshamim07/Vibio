@@ -7,16 +7,21 @@ import { dbConnect } from "@/connection/dbConnect";
 import { UserModel } from "@/models/UserModel";
 import { revalidatePath } from "next/cache";
 import fetchData from "@/utils/fetchData";
+import postData from "@/utils/postData";
 
-export async function createNewPost(postData) {
+export async function createNewPost(data) {
   await dbConnect();
   try {
     const user = await getUser();
 
     if (user?._id) {
+      const result = await postData(process.env.PHOTO_UPLOAD, {
+        images: data?.images,
+      });
       const newPost = {
         user: user?._id,
-        ...postData,
+        postImages: result?.files,
+        ...data,
       };
       const response = await PostModel.create(newPost);
       const formatedObj = formateMongo(response);

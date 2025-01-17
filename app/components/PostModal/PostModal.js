@@ -1,6 +1,7 @@
 import UserInfoPostaModal from "../NavContentModal/_components/UserInfoPostaModal";
 import CloseModalButton from "../NotificationModal/CloseModalButton";
 import RichTextEditor from "../RichTextEditor";
+
 import PostForm from "./_components/PostForm";
 
 export default function PostModal() {
@@ -17,11 +18,9 @@ export default function PostModal() {
           <UserInfoPostaModal />
           {/* Rich Text Editor */}
           <RichTextEditor />
-          {/* Photo Upload Section */}
-          {/* <PhotoUploadOption /> */}
-          {/* Video Upload Section */}
-          {/* <VideoUploadOption /> */}
+
         </div>
+     
       </PostForm>
     </div>
   );
