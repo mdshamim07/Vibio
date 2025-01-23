@@ -6,10 +6,12 @@ import profilePic from "@/assets/avatar/avatar.png";
 import uploadImage from "@/utils/uploadImage";
 import { uploadPhoto } from "@/actions/uploadPhoto";
 import CommonErrorMessage from "../../(auth)/_components/CommonErrorMessage";
+import uploadImages from "@/actions/uploadImages";
 
 export default function ProfilePicture({ avatar }) {
   const [preview, setPreview] = useState(avatar || profilePic);
   const [success, setSuccess] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   setTimeout(() => {
     if (success) {
@@ -17,32 +19,31 @@ export default function ProfilePicture({ avatar }) {
     }
   }, 1500);
   const handleImageChange = async (event) => {
+    setLoading(true);
     try {
       const file = event.target.files[0];
+
       if (file) {
         // Create a preview of the image
         const reader = new FileReader();
-        reader.onloadend = () => {
-          setPreview(reader.result); // Set the preview to the selected image
+        reader.onloadend = async () => {
+          setPreview(reader.result);
+          const response = await uploadImages(reader?.result);
+          if (response.ok) {
+            const imageInsert = await uploadPhoto(response?.files[0]);
+            if (imageInsert.ok) {
+              setSuccess(imageInsert.message);
+            } else {
+              setError(response.message);
+            }
+          }
         };
         reader.readAsDataURL(file);
-
-        // Upload the image (optional, if you want to handle image upload)
-        const data = new FormData();
-        data.append("image", file);
-        const response = await uploadImage(data);
-        if (response.data?.display_url) {
-          const imageInsert = await uploadPhoto(response?.data?.display_url);
-          if (imageInsert.ok) {
-            setSuccess(imageInsert.message);
-          } else {
-            setError(response.message);
-          }
-        }
       }
     } catch (err) {
       setError(err.message);
     } finally {
+      setLoading(false);
     }
   };
 
@@ -52,7 +53,6 @@ export default function ProfilePicture({ avatar }) {
       {error && <CommonErrorMessage>{error}</CommonErrorMessage>}
       <div className="relative bottom-[-50px] left-8 w-[120px] h-[120px] rounded-full border-4 border-white shadow-lg">
         {/* Display Profile Picture */}
-
         <Image
           src={preview}
           alt="Profile Picture"
@@ -93,6 +93,13 @@ export default function ProfilePicture({ avatar }) {
             <path d="m15 5 4 4" />
           </svg>
         </div>
+
+        {/* Loader Animation */}
+        {loading && (
+          <div className="absolute inset-0 bg-white/50 flex items-center justify-center rounded-full">
+            <div className="w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+          </div>
+        )}
       </div>
     </>
   );

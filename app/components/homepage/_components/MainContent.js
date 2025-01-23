@@ -1,4 +1,4 @@
-import PostItem from "@/app/(routes)/(profile)/profile/post/_components/PostItem";
+import PostItem from "@/app/(routes)/(profile)/profile/[profileid]/post/_components/PostItem";
 import Stories from "./Stories";
 import WhatsMindInput from "./WhatsMindInput";
 import { getUser } from "@/actions";
@@ -20,6 +20,7 @@ export default async function MainContent() {
             {data.map((post) => (
               <PostItem
                 postId={post?._id}
+                postUserId={post?.user?._id}
                 audience={post?.audience}
                 htmlContent={post?.htmlContent}
                 time={post?.createdAt}

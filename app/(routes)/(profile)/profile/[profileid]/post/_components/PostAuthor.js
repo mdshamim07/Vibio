@@ -2,6 +2,8 @@ import Image from "next/image";
 import ThreeDots from "./ThreeDots";
 import profilePic from "@/assets/avatar/avatar.png";
 import formateTime from "@/utils/formateTime";
+import Link from "next/link";
+
 export default function PostAuthor({
   user,
   time,
@@ -9,7 +11,6 @@ export default function PostAuthor({
   isSameUser,
   postId,
 }) {
-
   let audi;
   if (audience === "public") {
     audi = (
@@ -72,7 +73,7 @@ export default function PostAuthor({
   }
   return (
     <div className="flex justify-between items-center mb-4">
-      <div className="flex items-center gap-2">
+      <Link href={`/profile/${user?._id}`} className="flex items-center gap-2">
         <Image
           width={50}
           height={50}
@@ -89,7 +90,7 @@ export default function PostAuthor({
             {audi}
           </div>
         </div>
-      </div>
+      </Link>
       {isSameUser && <ThreeDots postId={postId} />}
     </div>
   );

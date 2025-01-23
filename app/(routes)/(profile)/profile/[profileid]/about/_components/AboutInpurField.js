@@ -10,6 +10,7 @@ export default function AboutInpurField({
   title,
   mode,
   typeOfChanges,
+  isLoggedUser,
 }) {
   const [isEdit, setIsEdit] = useState(false);
   const [error, setError] = useState(null);
@@ -44,34 +45,36 @@ export default function AboutInpurField({
       <p className="text-gray-600 flex items-center gap-2">
         {isEdit || inputValue.length === 0 ? (
           <>
-            {mode === "bio" ? (
-              <textarea
-                value={value}
-                onChange={(e) => setValue(e.target.value)}
-                type="text"
-                placeholder={placeHolder}
-                className={`w-full md:w-1/2 outline-none border variable-btn ${
-                  loading ? "opacity-50" : "opacity-100"
-                } bg-boxColor`}
-              ></textarea>
-            ) : (
-              <input
-                value={value}
-                onChange={(e) => setValue(e.target.value)}
-                type="text"
-                placeholder={placeHolder}
-                className={`w-full md:w-1/2 outline-none border variable-btn ${
-                  loading ? "opacity-50" : "opacity-100"
-                } bg-boxColor`}
-              />
-            )}
+            {isLoggedUser ? (
+              mode === "bio" ? (
+                <textarea
+                  value={value}
+                  onChange={(e) => setValue(e.target.value)}
+                  placeholder={placeHolder}
+                  className={`w-full md:w-1/2 outline-none border variable-btn ${
+                    loading ? "opacity-50" : "opacity-100"
+                  } bg-boxColor`}
+                ></textarea>
+              ) : (
+                <input
+                  value={value}
+                  onChange={(e) => setValue(e.target.value)}
+                  type="text"
+                  placeholder={placeHolder}
+                  className={`w-full md:w-1/2 outline-none border variable-btn ${
+                    loading ? "opacity-50" : "opacity-100"
+                  } bg-boxColor`}
+                />
+              )
+            ) : null}
           </>
         ) : (
           <span> {inputValue}</span>
         )}
+        {inputValue.length === 0 && !isLoggedUser && <span>N/A</span>}
         {isEdit || (
           <>
-            {inputValue.length > 0 && (
+            {inputValue.length > 0 && isLoggedUser && (
               <svg
                 onClick={() => setIsEdit(true)}
                 xmlns="http://www.w3.org/2000/svg"
@@ -93,7 +96,7 @@ export default function AboutInpurField({
           </>
         )}
       </p>
-      {isSaveButton && (
+      {isSaveButton && isLoggedUser && (
         <button className="mt-2 variable-btn bg-secondaryBg hover:bg-[#d6d9dd]">
           {loading ? (
             <div className="flex items-center gap-2">

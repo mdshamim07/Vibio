@@ -5,10 +5,10 @@ import PostActions from "./PostActions";
 import PostAuthor from "./PostAuthor";
 import PostImages from "./PostImages";
 import PostText from "./PostText";
-import PostThreeDots from "./PostThreeDots";
 import Image from "next/image";
 import profilePic from "@/assets/avatar/avatar.png";
 import { getUser } from "@/actions";
+
 export default async function PostItem({
   mode,
   time,
@@ -16,11 +16,12 @@ export default async function PostItem({
   images,
   audience,
   postUser,
+  postUserId,
   postId,
 }) {
   const loggedUser = await getUser();
   return (
-    <div className="shadow-xl bg-boxColor relative p-2 mt-2 border post-item">
+    <div className="shadow-xl bg-white relative p-2 mt-2 border post-item">
       <PostAuthor
         postId={postId}
         isSameUser={loggedUser?._id === postUser?._id ? true : false}
@@ -36,14 +37,14 @@ export default async function PostItem({
         images.length > 0 && <PostImages images={images} />
       )}
       <hr className="mt-2 mb-2" />
-      <PostActions postId={postId} />
+      <PostActions postId={postId} postUserId={postUserId} />
       {/* comment hidden  */}
       <CommentContainer postId={postId}>
         <Image
           width={40}
           height={40}
           className="w-[40px] h-[40px] rounded-full object-cover"
-          src={postUser?.avatar ? postUser?.avatar : profilePic}
+          src={loggedUser?.avatar ? loggedUser?.avatar : profilePic}
           alt="profile pic"
         />
       </CommentContainer>

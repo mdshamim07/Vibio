@@ -2,7 +2,7 @@
 
 import useMedia from "../hooks/useMedia";
 
-export default function NotificationButton() {
+export default function NotificationButton({ totalNotification }) {
   const { media, setMedia } = useMedia();
   return (
     <button
@@ -32,7 +32,7 @@ export default function NotificationButton() {
         <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
       </svg>
       <span className="w-[20px] justify-center items-center text-xs absolute top-[-12px] text-white right-[-10px] flex h-[20px] rounded-full bg-primary">
-        6k
+        {totalNotification}
       </span>
     </button>
   );

@@ -25,7 +25,10 @@ export default async function getUserById(userId) {
     return formateMongo(data);
   } catch (err) {
     // Log the error for debugging
-    console.error("Error in getUserById:", err.message);
-    throw new Error(err.message || "An unexpected error occurred.");
+    return {
+      ok: false,
+      message: err.message,
+      error : true
+    };
   }
 }

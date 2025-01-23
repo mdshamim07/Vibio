@@ -1,6 +1,10 @@
+import getNotifications from "@/queries/getNotifications";
 import CloseModalButton from "./CloseModalButton";
+import NotificationItem from "./_components/NotificationItem";
 
-export default function NotificationModal() {
+export default async function NotificationModal() {
+  const notifications = await getNotifications();
+
   return (
     <div id="modal">
       <div className="bg-white fixed right-2 top-16 rounded-lg w-[95%] sm:w-[400px] z-50">
@@ -11,25 +15,20 @@ export default function NotificationModal() {
         </div>
         {/* Modal Body */}
         <div className="p-4 h-[400px] overflow-y-auto">
-          {/* New Notifications */}
-          <h3 className="text-gray-700 font-medium mb-2">New</h3>
           <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-[50px] h-[50px]">
-                <img
-                  className="object-cover w-full h-full rounded-full"
-                  src="https://images.pexels.com/photos/29734216/pexels-photo-29734216/free-photo-of-cozy-winter-embrace-of-mother-and-child.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                  alt="User Profile"
+            {notifications.length > 0 ? (
+              notifications.map((notification) => (
+                <NotificationItem
+                  contentRef={notification?.contentRef}
+                  createdAt={notification?.createdAt}
+                  content={notification?.content}
+                  key={notification._id}
+                  userImage={notification?.userId?.avatar}
                 />
-              </div>
-              <div className="w-[80%]">
-                <p className="text-xs font-medium">
-                  Pujon Das Auvi, KAWSAR KABIR and 14 others posted in Learn
-                  with Sumit - LWS
-                </p>
-                <span className="text-xs text-gray-500">7m</span>
-              </div>
-            </div>
+              ))
+            ) : (
+              <h3 className="text-center mt-4 ">No Notification </h3>
+            )}
           </div>
         </div>
       </div>

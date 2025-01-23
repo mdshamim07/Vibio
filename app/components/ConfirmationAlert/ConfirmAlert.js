@@ -23,7 +23,6 @@ export default function ConfirmAlert({ children }) {
           postId: "",
           isAlert: false,
         });
-        router.push("/");
       }
     } catch (err) {
       setError(err.message);

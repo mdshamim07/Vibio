@@ -14,12 +14,12 @@ export async function uploadPhoto(imageText) {
         { _id: user?._id },
         { avatar: imageText }
       );
-   
 
       if (response.modifiedCount > 0) {
         revalidatePath("/");
         return {
           ok: true,
+          id: user?._id,
           message: "Profile Pic uploded!",
         };
       }

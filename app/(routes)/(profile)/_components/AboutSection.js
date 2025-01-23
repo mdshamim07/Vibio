@@ -4,7 +4,7 @@ import { updateProfileInfo } from "@/actions/profileActions";
 import { useState } from "react";
 import CommonErrorMessage from "../../(auth)/_components/CommonErrorMessage";
 
-export default function AboutSection({ children, bio }) {
+export default function AboutSection({ children, bio, userId, loggedUser }) {
   const [edit, setEdit] = useState({
     isActive: false,
     text: bio,
@@ -56,26 +56,28 @@ export default function AboutSection({ children, bio }) {
           edit?.isActive ? "w-[50%]" : "w-full"
         } gap-2`}
       >
-        <button
-          onClick={() => {
-            if (edit?.isActive) {
-              setEdit({
-                ...edit,
-                isActive: false,
-                text: bio,
-              });
-            } else {
-              setEdit({
-                ...edit,
-                isActive: true,
-                text: bio,
-              });
-            }
-          }}
-          className="variable-btn bg-secondaryBg w-full  hover:bg-[#d6d9dd]"
-        >
-          {edit?.isActive ? "Cancel" : "Edit Bio"}
-        </button>
+        {loggedUser === userId && (
+          <button
+            onClick={() => {
+              if (edit?.isActive) {
+                setEdit({
+                  ...edit,
+                  isActive: false,
+                  text: bio,
+                });
+              } else {
+                setEdit({
+                  ...edit,
+                  isActive: true,
+                  text: bio,
+                });
+              }
+            }}
+            className="variable-btn bg-secondaryBg w-full  hover:bg-[#d6d9dd]"
+          >
+            {edit?.isActive ? "Cancel" : "Edit Bio"}
+          </button>
+        )}
         {edit?.isActive && (
           <button
             onClick={handleSaveBio}

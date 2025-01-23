@@ -1,20 +1,32 @@
-import { getUser } from "@/actions";
-import AboutSection from "../_components/AboutSection";
-import CreatePostButton from "./_components/CreatePostButton";
+import AboutSection from "../../_components/AboutSection";
 import Image from "next/image";
 import profilePic from "@/assets/avatar/avatar.png";
-import ProfilePostInput from "./_components/ProfilePostInput";
+import ProfilePostInput from "../_components/ProfilePostInput";
 import getPostById from "@/queries/getPostById";
 import PostItem from "./post/_components/PostItem";
-export default async function page() {
-  const user = await getUser();
+import getUserById from "@/queries/getUserById";
+import { redirect } from "next/navigation";
+import { getUser } from "@/actions";
+export default async function page({ params }) {
+  const par = await params;
+  const user = await getUserById(par?.profileid);
+
+  if (user.error) {
+    redirect("/not-found");
+  }
+
   const posts = await getPostById(user?._id);
+  const loggedUser = await getUser();
   return (
     <div className=" flex flex-col lg:flex-row gap-6 px-4 lg:px-16 py-6">
       {/* Left Column: About and Friends */}
       <div className="w-full lg:w-1/3">
         {/* About Section */}
-        <AboutSection bio={user?.about?.bio}>
+        <AboutSection
+          loggedUser={loggedUser?._id}
+          userId={user?._id}
+          bio={user?.about?.bio}
+        >
           <ul className="mt-4">
             {user?.about?.work.length > 0 && (
               <li className="text-gray-600 mt-2 flex items-center gap-2">

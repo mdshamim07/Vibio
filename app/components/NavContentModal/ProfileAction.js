@@ -3,7 +3,7 @@ import useMedia from "@/app/hooks/useMedia";
 import Image from "next/image";
 import Link from "next/link";
 import profilePic from "@/assets/avatar/avatar.png";
-export default function ProfileAction({ avatar, firstName, lastName }) {
+export default function ProfileAction({ avatar, firstName, lastName, id }) {
   const { media, setMedia } = useMedia();
   return (
     <li className="hover:bg-[#e0e0e0] p-2 cursor-pointer">
@@ -14,7 +14,7 @@ export default function ProfileAction({ avatar, firstName, lastName }) {
             navContent: false,
           });
         }}
-        href="/profile"
+        href={`/profile/${id}`}
         className="flex items-center  gap-2 w-full"
       >
         <Image

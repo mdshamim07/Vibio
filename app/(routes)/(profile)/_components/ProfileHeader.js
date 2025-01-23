@@ -1,11 +1,12 @@
-import { getUser } from "@/actions";
+
 import ProfilePicture from "./ProfilePicture";
 import Link from "next/link";
+import getUserById from "@/queries/getUserById";
 
-export default async function ProfileHeader() {
-  const user = await getUser();
+export default async function ProfileHeader({ params }) {
+  const user = await getUserById(params?.profileid);
   const { work, education, location, bio, skills } = user && user?.about;
-
+  
   return (
     <div className="bg-white shadow-md">
       <div className="relative">

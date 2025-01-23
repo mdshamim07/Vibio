@@ -1,4 +1,4 @@
-import PostItem from "../(profile)/profile/post/_components/PostItem";
+import PostItem from "../(profile)/profile/[profileid]/post/_components/PostItem";
 
 export default function page() {
   return (

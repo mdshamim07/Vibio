@@ -55,14 +55,16 @@ export async function POST(request) {
     }
 
     // Respond with the file URLs
+    
     return NextResponse.json({
+      ok: true,
       message: "Images uploaded successfully",
       files: savedImages,
     });
   } catch (error) {
     console.error("Error uploading images:", error);
     return NextResponse.json(
-      { error: "Failed to upload images" },
+      { error: "Failed to upload images", ok: false },
       { status: 500 }
     );
   }

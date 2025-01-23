@@ -1,13 +1,15 @@
 "use server";
 
 import { PostModel } from "@/models/PostModel";
-import { getUser, updatePassword } from ".";
+import { getUser } from ".";
 import formateMongo from "@/app/api/helpers/formateMongo";
 import { dbConnect } from "@/connection/dbConnect";
 import { UserModel } from "@/models/UserModel";
 import { revalidatePath } from "next/cache";
 import fetchData from "@/utils/fetchData";
 import postData from "@/utils/postData";
+import { notificationModel } from "@/models/NotificationModel";
+import addNewNotification from "./addNewNotification";
 
 export async function createNewPost(data) {
   await dbConnect();
@@ -91,29 +93,50 @@ export async function getLikes(postId) {
   }
 }
 
-export async function addNewLikeAction(postId) {
+export async function addNewLikeAction(postId, postUserId) {
   try {
     await dbConnect();
     const user = await getUser();
-    const newLike = {
-      user: user?._id,
-    };
+    if (!user?._id) {
+      throw new Error("User not authenticated");
+    }
+
     const post = await PostModel.findById(postId);
-    const formatedObj = formateMongo(post);
-    const isLiked = formatedObj?.likes.find((like) => like?.user === user?._id);
+    if (!post) {
+      throw new Error("Post not found");
+    }
+
+    const isLiked = post.likes.find(
+      (like) => like.user.toString() === user._id
+    );
+
     if (isLiked) {
-      const updatedPost = await PostModel.findByIdAndUpdate(
+      // Remove like
+      await PostModel.findByIdAndUpdate(
         postId,
-        { $pull: { likes: { _id: isLiked?._id } } }, // Pull the comment with the matching `_id`
+        { $pull: { likes: { user: user._id } } }, // Match by user ID
         { new: true } // Return the updated document
       );
-      if (updatedPost) {
-        revalidatePath("/");
-      }
+
+      revalidatePath("/"); // Revalidate the page
+      return { ok: true, message: "Like removed successfully" };
     } else {
-      post.likes.push(newLike);
+      // Add new like
+      post.likes.push({ user: user._id });
       await post.save();
-      revalidatePath("/");
+
+      // Create a notification for the post owner
+      const response = await addNewNotification(
+        user?._id,
+        "like",
+        `${user.firstName} ${user.lastName} reacted to your post`,
+        "Post",
+        postId,
+        postUserId
+      );
+      console.log(response);
+      revalidatePath("/"); // Revalidate the page
+      return { ok: true, message: "Post liked successfully" };
     }
   } catch (err) {
     return {

@@ -1,5 +1,5 @@
 import { getPostById } from "@/actions/postActions";
-import PostItem from "../../(profile)/profile/post/_components/PostItem";
+import PostItem from "../../(profile)/profile/[profileid]/post/_components/PostItem";
 import { getUser } from "@/actions";
 
 export default async function page({ params }) {
