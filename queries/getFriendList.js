@@ -1,6 +1,7 @@
 import { getUser } from "@/actions";
 import formateMongo from "@/app/api/helpers/formateMongo";
 import { dbConnect } from "@/connection/dbConnect";
+import { RequestListModel } from "@/models/RequestListModel";
 import { UserModel } from "@/models/UserModel";
 import { ObjectId } from "mongodb"; // Make sure to import ObjectId
 
@@ -9,8 +10,6 @@ export default async function getFriendList() {
 
   try {
     await dbConnect();
-
-    // Exclude user by _id using $ne and select the required fields
     const response = await UserModel.find(
       {
         active: true,
@@ -19,10 +18,6 @@ export default async function getFriendList() {
       {
         firstName: 1,
         lastName: 1,
-        email: 1,
-        about: 1,
-        dateOfBirth: 1,
-        gender: 1,
         avatar: 1,
       }
     );

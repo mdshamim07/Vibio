@@ -6,15 +6,16 @@ import { getUser } from ".";
 import { revalidatePath } from "next/cache";
 import formateMongo from "@/app/api/helpers/formateMongo";
 import { FriendListModel } from "@/models/FriendListModal";
+import { UserModel } from "@/models/UserModel";
 
 export async function addFriendAction(requestedUserId) {
   try {
     const user = await getUser();
     await dbConnect();
+
     const newFriendReq = {
       requestedUserId,
-      senderId: user?._id,
-      user: user?._id,
+      recipient: user?._id,
     };
     const response = await RequestListModel.create(newFriendReq);
     if (response) {
@@ -81,38 +82,39 @@ export async function getFriendRequestionAction() {
     const user = await getUser();
     const response = await RequestListModel.find({
       requestedUserId: user?._id,
+      status: { $in: ["pending"] },
+    }).populate({
+      path: "recipient",
+      model: UserModel,
+      select: ["avatar", "firstName", "lastName"],
     });
+
     return formateMongo(response);
   } catch (err) {
     return {
       error: true,
-      message: error.message,
+      message: err.message,
     };
   }
 }
-export async function acceptReqAction(userId, id) {
+export async function acceptReqAction(id) {
   try {
     await dbConnect();
-    const newFriend = {
-      user: userId,
-    };
-    const response = await FriendListModel.create(newFriend);
-    if (response) {
-      const deleteReq = await RequestListModel.deleteOne({
-        _id: id,
-      });
 
-      if (deleteReq?.deletedCount > 0) {
-        revalidatePath("/");
-        return {
-          ok: true,
-        };
-      } else {
-        return {
-          ok: false,
-          message: "something went wrong!",
-        };
+    const accepted = await RequestListModel.updateOne(
+      {
+        _id: id,
+      },
+      {
+        status: "accepted",
       }
+    );
+
+    if (accepted?.modifiedCount > 0) {
+      revalidatePath("/");
+      return {
+        ok: true,
+      };
     } else {
       return {
         ok: false,

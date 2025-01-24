@@ -14,7 +14,7 @@ export default function AddFriendButton({ id, isFriend, mode, user }) {
   async function handleAddFriend() {
     setLoading(true);
     try {
-      const response = await addFriendAction(id);
+      const response = await addFriendAction(id, user);
       if (!response.ok) {
         setError(response.message);
       }
@@ -41,7 +41,7 @@ export default function AddFriendButton({ id, isFriend, mode, user }) {
     setLoading(true);
     setError(null);
     try {
-      await acceptReqAction(user, id);
+      await acceptReqAction(id);
     } catch (err) {
       setError(error.message);
     } finally {

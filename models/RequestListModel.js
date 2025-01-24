@@ -5,13 +5,14 @@ const requestListSchema = new mongoose.Schema({
     type: Schema.Types.ObjectId,
     required: true,
   },
-  senderId: {
+  recipient: {
     type: Schema.Types.ObjectId,
     required: true,
   },
-  user: {
-    type: Schema.Types.ObjectId,
-    required: true,
+  status: {
+    type: String,
+    enum: ["pending", "accepted", "rejected"],
+    default: "pending",
   },
 });
 

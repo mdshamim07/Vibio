@@ -12,6 +12,7 @@ export default async function page({ params }) {
       <div className="pb-4 w-full lg:w-[50%]">
         {post ? (
           <PostItem
+            postUserId={post?.user}
             postId={post?._id}
             audience={post?.audience}
             htmlContent={post?.htmlContent}

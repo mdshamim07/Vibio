@@ -12,6 +12,7 @@ export default async function page() {
         {data &&
           data.map((post) => (
             <PostItem
+              postUserId={post?.user}
               postId={post?._id}
               audience={post?.audience}
               htmlContent={post?.htmlContent}

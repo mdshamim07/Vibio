@@ -2,7 +2,7 @@
 
 import useMedia from "../hooks/useMedia";
 
-export default function FriendListModalButton() {
+export default function FriendListModalButton({ totalFriendRequests }) {
   const { media, setMedia } = useMedia();
   return (
     <button
@@ -34,7 +34,7 @@ export default function FriendListModalButton() {
         <line x1={22} x2={16} y1={11} y2={11} />
       </svg>
       <span className="w-[20px] justify-center items-center text-xs absolute top-[-12px] text-white right-[-10px] flex h-[20px] rounded-full bg-primary">
-        1k
+        {totalFriendRequests}
       </span>
     </button>
   );

@@ -9,7 +9,9 @@ export default async function NavActions() {
   return (
     <>
       <ChatListModalButton />
-      <FriendListModalButton />
+      <FriendListModalButton
+        totalFriendRequests={counts?.totalFriendRequests}
+      />
       <NotificationButton totalNotification={counts?.totalNotification} />
     </>
   );

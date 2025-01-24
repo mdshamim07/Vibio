@@ -39,7 +39,7 @@ export default async function PostItem({
       <hr className="mt-2 mb-2" />
       <PostActions postId={postId} postUserId={postUserId} />
       {/* comment hidden  */}
-      <CommentContainer postId={postId}>
+      <CommentContainer postUserId={postUserId} postId={postId}>
         <Image
           width={40}
           height={40}

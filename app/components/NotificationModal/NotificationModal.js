@@ -1,7 +1,8 @@
 import getNotifications from "@/queries/getNotifications";
 import CloseModalButton from "./CloseModalButton";
 import NotificationItem from "./_components/NotificationItem";
-
+import formateTime from "@/utils/formateTime";
+import Image from "next/image";
 export default async function NotificationModal() {
   const notifications = await getNotifications();
 
@@ -19,12 +20,28 @@ export default async function NotificationModal() {
             {notifications.length > 0 ? (
               notifications.map((notification) => (
                 <NotificationItem
+                  id={notification?._id}
                   contentRef={notification?.contentRef}
-                  createdAt={notification?.createdAt}
-                  content={notification?.content}
                   key={notification._id}
-                  userImage={notification?.userId?.avatar}
-                />
+                >
+                  <div className="w-[50px] h-[50px]">
+                    <Image
+                      width={50}
+                      height={50}
+                      className="object-cover w-full h-full rounded-full"
+                      src={notification?.userId?.avatar}
+                      alt="User Profile"
+                    />
+                  </div>
+                  <div className="w-[80%]">
+                    <p className="text-xs font-medium">
+                      {notification?.content}
+                    </p>
+                    <span className="text-xs text-gray-500">
+                      {formateTime(notification?.createdAt)}
+                    </span>
+                  </div>
+                </NotificationItem>
               ))
             ) : (
               <h3 className="text-center mt-4 ">No Notification </h3>

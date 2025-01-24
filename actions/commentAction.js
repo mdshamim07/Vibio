@@ -3,8 +3,9 @@ import { CommentModel } from "@/models/CommentModel";
 import { getUser } from ".";
 import { revalidatePath } from "next/cache";
 import { dbConnect } from "@/connection/dbConnect";
+import addNewNotification from "./addNewNotification";
 
-export async function addComment(comment, postId) {
+export async function addComment(comment, postId, postUserId) {
   if (comment?.title.length === 0) {
     return {
       ok: false,
@@ -20,6 +21,16 @@ export async function addComment(comment, postId) {
       postId,
     };
     const response = await CommentModel.create(newComment);
+    const notification = await addNewNotification(
+      user?._id,
+      "comment",
+      `${user?.firstName} ${user?.lastName} commented your post`,
+      "Post",
+      postId,
+      postUserId
+    );
+    console.log(notification);
+
     if (response) {
       revalidatePath("/");
       return {

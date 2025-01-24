@@ -7,7 +7,7 @@ import { useCommentContext } from "@/app/providers/CommentProvider";
 import getFormData from "@/utils/getFormData";
 import { useState } from "react";
 
-export default function CommentContainer({ children, postId }) {
+export default function CommentContainer({ children, postId, postUserId }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const { media } = useMedia();
@@ -18,7 +18,7 @@ export default function CommentContainer({ children, postId }) {
     setLoading(true);
     try {
       const formData = getFormData(e);
-      const response = await addComment(formData, postId);
+      const response = await addComment(formData, postId, postUserId);
       if (response.ok) {
         setError(null);
         setComment("");

@@ -10,7 +10,7 @@ export default async function getNotifications() {
   try {
     await dbConnect();
     const response = await notificationModel
-      .find({ referenceId: user?._id })
+      .find({ referenceId: user?._id, isRead: false })
       .populate({
         model: UserModel,
         path: "userId",
