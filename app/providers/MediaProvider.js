@@ -18,6 +18,10 @@ export default function MediaProvider({ children }) {
     postId: "",
     isAlert: false,
     postModalContent: "",
+    chatboxInfo: {
+      isActive: false,
+      recipient: "",
+    },
   });
 
   return (

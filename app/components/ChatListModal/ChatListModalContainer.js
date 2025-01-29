@@ -3,6 +3,6 @@
 import useMedia from "@/app/hooks/useMedia";
 
 export default function ChatListModalContainer({ children }) {
-  const { media, setMedia } = useMedia();
+  const { media } = useMedia();
   return <>{media?.chatListModal && children}</>;
 }

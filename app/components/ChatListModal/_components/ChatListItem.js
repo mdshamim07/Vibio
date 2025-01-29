@@ -1,7 +1,22 @@
+"use client";
+import useMedia from "@/app/hooks/useMedia";
 import profilePic from "@/assets/avatar/avatar.png";
 export default function ChatListItem({ chatItem }) {
+  const { media, setMedia } = useMedia();
+  function handleChatbox() {
+    setMedia({
+      ...media,
+      chatboxInfo: {
+        isActive: true,
+        recipient: chatItem?._id, 
+      },
+    });
+  }
   return (
-    <div className="flex items-center gap-3 cursor-pointer hover:bg-gray-100 p-2 rounded-lg">
+    <div
+      onClick={handleChatbox}
+      className="flex items-center gap-3 cursor-pointer hover:bg-gray-100 p-2 rounded-lg"
+    >
       <div className="w-[50px] h-[50px]">
         <img
           width={50}

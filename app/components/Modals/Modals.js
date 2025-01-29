@@ -1,5 +1,4 @@
-import ChatBoxModal from "../ChatBoxModal/ChatBoxModal";
-import ChatBoxModalContainer from "../ChatBoxModal/ChatBoxModalContainer";
+
 import ChatListModal from "../ChatListModal/ChatListModal";
 import ChatListModalContainer from "../ChatListModal/ChatListModalContainer";
 import ConfirmAlert from "../ConfirmationAlert/ConfirmAlert";
@@ -40,9 +39,7 @@ export default function Modals() {
       <NavContentModalContainer>
         <NavContentModal />
       </NavContentModalContainer>
-      {/* <ChatBoxModalContainer>
-        <ChatBoxModal />
-      </ChatBoxModalContainer> */}
+    
       <ConfirmAlert>
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-lg font-semibold text-gray-800">Are you sure?</h2>

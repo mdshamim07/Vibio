@@ -1,6 +1,34 @@
+"use client";
+
+import { createNewChatAction } from "@/actions/createNewChat";
+import useMedia from "@/app/hooks/useMedia";
+import { useState } from "react";
+
 export default function ChatInputArea() {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const { media, setMedia } = useMedia();
+  async function createChat(e) {
+    e.preventDefault();
+    const chatInput = e.target.chatInput.value.trim();
+    setLoading(true);
+    try {
+      const response = await createNewChatAction(
+        media?.chatboxInfo?.recipient,
+        chatInput
+      );
+      console.log(response);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  }
   return (
-    <div className="border-t py-2 px-4 flex items-center gap-2">
+    <form
+      onSubmit={createChat}
+      className="border-t py-2 px-4 flex items-center gap-2"
+    >
       {/* File Upload Icon */}
       <label htmlFor="file-upload" className="cursor-pointer">
         <svg
@@ -22,12 +50,18 @@ export default function ChatInputArea() {
       </label>
       {/* Input Field */}
       <input
+        name="chatInput"
         type="text"
         placeholder="Type your message..."
         className="w-full py-2 px-3 rounded-full border focus:outline-none focus:ring-2 focus:ring-primary"
       />
       {/* Send Button */}
-      <button className="bg-primary hover:bg-hover text-white py-2 px-4 rounded-full">
+      <button
+        disabled={loading}
+        className={`${
+          loading ? "bg-hover" : "bg-primary hover:bg-hover"
+        } text-white py-2 px-4 rounded-full`}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width={20}
@@ -44,6 +78,6 @@ export default function ChatInputArea() {
           <path d="m21.854 2.147-10.94 10.939" />
         </svg>
       </button>
-    </div>
+    </form>
   );
 }
