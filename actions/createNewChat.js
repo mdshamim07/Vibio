@@ -3,6 +3,7 @@
 import { chatModel } from "@/models/chatModel";
 import { getUser } from ".";
 import { dbConnect } from "@/connection/dbConnect";
+import { revalidatePath } from "next/cache";
 
 export async function createNewChatAction(receiverId, message, media) {
   try {
@@ -12,12 +13,11 @@ export async function createNewChatAction(receiverId, message, media) {
       sender: user?._id,
       receiver: receiverId,
       text: message,
+      user: user?._id,
     };
     const response = await chatModel.create(newChat);
-    console.log(response);
+    revalidatePath("/");
   } catch (err) {
-    console.log(err.message);
-
     return {
       ok: false,
       message: err.message,

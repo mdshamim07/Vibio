@@ -1,4 +1,5 @@
-export default function IncommingChatItem() {
+export default function IncommingChatItem({ text, user }) {
+
   return (
     <div className="flex justify-start gap-3 items-start">
       {/* Sender Avatar */}
@@ -7,9 +8,7 @@ export default function IncommingChatItem() {
       </div>
       {/* Message Bubble */}
       <div className="relative bg-gray-100 text-gray-800 py-2 px-4 rounded-2xl shadow-sm max-w-[70%]">
-        <p className="leading-relaxed text-sm">
-          I need some assistance with my account setup.
-        </p>
+        <p className="leading-relaxed text-sm">{text}</p>
         {/* Subtle Triangle Pointer */}
         <div className="absolute top-3 left-[-8px] w-4 h-4 bg-gray-100 transform rotate-45 shadow-sm" />
       </div>

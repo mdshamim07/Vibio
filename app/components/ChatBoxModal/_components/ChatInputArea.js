@@ -13,11 +13,7 @@ export default function ChatInputArea() {
     const chatInput = e.target.chatInput.value.trim();
     setLoading(true);
     try {
-      const response = await createNewChatAction(
-        media?.chatboxInfo?.recipient,
-        chatInput
-      );
-      console.log(response);
+      await createNewChatAction(media?.chatboxInfo?.recipient, chatInput);
     } catch (err) {
       setError(err.message);
     } finally {
