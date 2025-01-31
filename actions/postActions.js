@@ -134,7 +134,7 @@ export async function addNewLikeAction(postId, postUserId) {
         postId,
         postUserId
       );
-      console.log(response);
+     
       revalidatePath("/"); // Revalidate the page
       return { ok: true, message: "Post liked successfully" };
     }

@@ -1,30 +1,44 @@
 "use client";
 
+import { useState } from "react";
 import { createNewChatAction } from "@/actions/createNewChat";
 import useMedia from "@/app/hooks/useMedia";
-import { useState } from "react";
+import CommonErrorMessage from "@/app/(routes)/(auth)/_components/CommonErrorMessage";
 
 export default function ChatInputArea() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const { media, setMedia } = useMedia();
+
+  // Create a new chat message
   async function createChat(e) {
     e.preventDefault();
+
     const chatInput = e.target.chatInput.value.trim();
+    if (!chatInput) return; // Ensure chatInput is not empty
     setLoading(true);
     try {
-      await createNewChatAction(media?.chatboxInfo?.recipient, chatInput);
+      // Send the message by calling the createNewChatAction API
+      const newChat = await createNewChatAction(
+        media?.chatboxInfo?.recipient,
+        chatInput
+      );
+
+      // Clear the input after sending
+      e.target.chatInput.value = "";
     } catch (err) {
       setError(err.message);
     } finally {
       setLoading(false);
     }
   }
+
   return (
     <form
       onSubmit={createChat}
       className="border-t py-2 px-4 flex items-center gap-2"
     >
+      {error && <CommonErrorMessage>{error}</CommonErrorMessage>}
       {/* File Upload Icon */}
       <label htmlFor="file-upload" className="cursor-pointer">
         <svg
@@ -44,6 +58,7 @@ export default function ChatInputArea() {
         </svg>
         <input type="file" id="file-upload" className="hidden" />
       </label>
+
       {/* Input Field */}
       <input
         name="chatInput"
@@ -51,6 +66,7 @@ export default function ChatInputArea() {
         placeholder="Type your message..."
         className="w-full py-2 px-3 rounded-full border focus:outline-none focus:ring-2 focus:ring-primary"
       />
+
       {/* Send Button */}
       <button
         disabled={loading}

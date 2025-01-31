@@ -37,7 +37,11 @@ const messageSchema = new mongoose.Schema(
     // ],
     createdAt: {
       type: Date,
-      default: Date.now(),
+      default: Date.now,
+    },
+    isRead: {
+      type: String,
+      default: false,
     },
   },
   { timestamps: true }
