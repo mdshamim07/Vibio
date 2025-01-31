@@ -1,5 +1,5 @@
 import PostItem from "@/app/(routes)/(profile)/profile/[profileid]/post/_components/PostItem";
-import Stories from "./Stories";
+// import Stories from "./Stories";
 import WhatsMindInput from "./WhatsMindInput";
 import { getUser } from "@/actions";
 import { getPosts } from "@/actions/postActions";
@@ -11,7 +11,7 @@ export default async function MainContent() {
 
   return (
     <div className="middle col-span-12 lg:col-span-5">
-      <Stories />
+      {/* <Stories /> */}
       <WhatsMindInput avatar={user?.avatar} />
       {data.length > 0 ? (
         <>
